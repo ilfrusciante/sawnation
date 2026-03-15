@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import CitizenCounter from '@/components/CitizenCounter'
 import dynamic from 'next/dynamic'
+import { CrowdFists, SingleFist, WorldCrowd } from '@/components/ProtestArt'
 
 const WorldMap = dynamic(() => import('@/components/WorldMap'), { ssr: false })
 
@@ -64,16 +65,21 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        {/* Illustrazione crowd sotto l'hero */}
+        <div className="bg-saw-yellow border-t-4 border-black px-6 py-6 overflow-hidden">
+          <CrowdFists className="w-full max-w-3xl mx-auto" />
+        </div>
       </section>
 
       {/* COUNTER */}
       <section className="bg-black py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="pulse-dot" />
             <span className="font-oswald text-sm font-bold text-saw-red uppercase tracking-widest">Aggiornamento in tempo reale</span>
           </div>
           <CitizenCounter large />
+          <WorldCrowd className="w-full max-w-2xl mx-auto mt-10 opacity-80" />
         </div>
       </section>
 
@@ -102,9 +108,10 @@ export default function HomePage() {
               ENTRA NEL MOVIMENTO →
             </Link>
           </div>
-          <div className="thick-border p-8 bg-saw-yellow">
-            <p className="stencil-title text-black text-2xl mb-6">I NUMERI CHE I GOVERNI NON PUBBLICANO</p>
-            <div className="space-y-4">
+          <div className="thick-border bg-saw-yellow overflow-hidden">
+            <SingleFist className="w-32 mx-auto mt-6" color="#FF0000" />
+            <p className="stencil-title text-black text-2xl mb-6 px-8 pt-2">I NUMERI CHE I GOVERNI NON PUBBLICANO</p>
+            <div className="space-y-4 px-8 pb-8">
               {[
                 { num: '2.100+', label: 'miliardi di dollari spesi in armi nel 2023 (SIPRI)', color: 'text-saw-red' },
                 { num: '43%', label: 'dei soldati morti nelle ultime guerre aveva meno di 25 anni', color: 'text-black' },

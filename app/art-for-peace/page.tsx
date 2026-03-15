@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { ArtistFigure, ProtestBannerArt, CrowdFists, SingleFist } from '@/components/ProtestArt'
 
 const MANIFESTO = [
   {
@@ -82,10 +83,18 @@ export default function ArtForPeacePage() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-saw-yellow thick-border p-8 flex items-center justify-center text-6xl aspect-square">🎨</div>
-            <div className="bg-saw-red thick-border p-8 flex items-center justify-center text-6xl aspect-square">✏️</div>
-            <div className="bg-white thick-border p-8 flex items-center justify-center text-6xl aspect-square">📸</div>
-            <div className="bg-saw-blue thick-border p-8 flex items-center justify-center text-6xl aspect-square">🎵</div>
+            <div className="bg-saw-yellow thick-border flex items-center justify-center aspect-square overflow-hidden">
+              <SingleFist className="w-full h-full p-4" color="#FF0000" />
+            </div>
+            <div className="bg-saw-red thick-border flex items-center justify-center aspect-square overflow-hidden">
+              <SingleFist className="w-full h-full p-4" color="#FFD700" />
+            </div>
+            <div className="bg-white thick-border flex items-center justify-center aspect-square overflow-hidden">
+              <ArtistFigure className="w-full h-full" />
+            </div>
+            <div className="bg-black thick-border flex items-center justify-center aspect-square overflow-hidden">
+              <SingleFist className="w-full h-full p-4" color="#0033CC" />
+            </div>
           </div>
         </div>
       </section>
@@ -128,8 +137,10 @@ export default function ArtForPeacePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {FEATURED_ARTISTS.map((artist, i) => (
               <div key={i} className="bg-white thick-border overflow-hidden">
-                <div className="bg-black p-8 flex items-center justify-center text-6xl aspect-video">
-                  {artist.placeholder}
+                <div className={`aspect-video overflow-hidden flex items-center justify-center ${i === 0 ? 'bg-saw-red' : i === 1 ? 'bg-black' : 'bg-saw-blue'}`}>
+                  {i === 0 && <SingleFist className="w-full h-full p-6" color="#FFD700" />}
+                  {i === 1 && <ArtistFigure className="w-full h-full" />}
+                  {i === 2 && <ProtestBannerArt className="w-full h-full" />}
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
@@ -177,6 +188,11 @@ export default function ArtForPeacePage() {
 
       {/* PROTEST LINE */}
       <div className="protest-line" />
+
+      {/* CROWD ILLUSTRATION */}
+      <section className="bg-saw-yellow border-b-4 border-black py-6 px-6 overflow-hidden">
+        <CrowdFists className="w-full max-w-3xl mx-auto" />
+      </section>
 
       {/* COME PARTECIPARE */}
       <section className="bg-black px-6 py-16">
