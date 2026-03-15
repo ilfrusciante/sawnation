@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { ArtistFigure, ProtestBannerArt, CrowdFists, SingleFist } from '@/components/ProtestArt'
 
 const MANIFESTO = [
   {
@@ -83,18 +82,17 @@ export default function ArtForPeacePage() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-saw-yellow thick-border flex items-center justify-center aspect-square overflow-hidden">
-              <SingleFist className="w-full h-full p-4" color="#FF0000" />
-            </div>
-            <div className="bg-saw-red thick-border flex items-center justify-center aspect-square overflow-hidden">
-              <SingleFist className="w-full h-full p-4" color="#FFD700" />
-            </div>
-            <div className="bg-white thick-border flex items-center justify-center aspect-square overflow-hidden">
-              <ArtistFigure className="w-full h-full" />
-            </div>
-            <div className="bg-black thick-border flex items-center justify-center aspect-square overflow-hidden">
-              <SingleFist className="w-full h-full p-4" color="#0033CC" />
-            </div>
+            {[
+              'https://images.unsplash.com/photo-1487452066049-a710f7296400?auto=format&fit=crop&w=600&q=80',
+              'https://images.unsplash.com/photo-1607367502636-28fca0fef0d5?auto=format&fit=crop&w=600&q=80',
+              'https://images.unsplash.com/photo-1524754271100-b16fa3ad4906?auto=format&fit=crop&w=600&q=80',
+              'https://images.unsplash.com/photo-1581850518616-bcb8077a2336?auto=format&fit=crop&w=600&q=80',
+            ].map((src, i) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <div key={i} className="thick-border overflow-hidden aspect-square">
+                <img src={src} alt="protest art" className="w-full h-full object-cover" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -137,10 +135,17 @@ export default function ArtForPeacePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {FEATURED_ARTISTS.map((artist, i) => (
               <div key={i} className="bg-white thick-border overflow-hidden">
-                <div className={`aspect-video overflow-hidden flex items-center justify-center ${i === 0 ? 'bg-saw-red' : i === 1 ? 'bg-black' : 'bg-saw-blue'}`}>
-                  {i === 0 && <SingleFist className="w-full h-full p-6" color="#FFD700" />}
-                  {i === 1 && <ArtistFigure className="w-full h-full" />}
-                  {i === 2 && <ProtestBannerArt className="w-full h-full" />}
+                <div className="aspect-video overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={[
+                      'https://images.unsplash.com/photo-1559743577-44f718e47c7d?auto=format&fit=crop&w=800&q=80',
+                      'https://images.unsplash.com/photo-1563865412957-d2a5c15643b6?auto=format&fit=crop&w=800&q=80',
+                      'https://images.unsplash.com/photo-1621018156185-64acfed1963c?auto=format&fit=crop&w=800&q=80',
+                    ][i]}
+                    alt={artist.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
@@ -189,9 +194,24 @@ export default function ArtForPeacePage() {
       {/* PROTEST LINE */}
       <div className="protest-line" />
 
-      {/* CROWD ILLUSTRATION */}
-      <section className="bg-saw-yellow border-b-4 border-black py-6 px-6 overflow-hidden">
-        <CrowdFists className="w-full max-w-3xl mx-auto" />
+      {/* BANNER IMMAGINE PIENA */}
+      <section className="relative overflow-hidden h-72 md:h-96">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1601913463731-cfba9fd31ed3?auto=format&fit=crop&w=1600&q=80"
+          alt="Graffiti art"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
+          <div>
+            <h2 className="stencil-title text-white text-5xl md:text-7xl mb-4">
+              STAND UP<br />
+              <span className="text-saw-yellow">AGAINST WAR</span>
+            </h2>
+            <p className="font-oswald text-white/80 text-xl">Join Our Movement</p>
+          </div>
+        </div>
       </section>
 
       {/* COME PARTECIPARE */}
