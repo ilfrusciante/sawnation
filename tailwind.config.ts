@@ -9,22 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'saw-red': '#CC0000',
-        'saw-red-dark': '#990000',
-        'saw-red-light': '#FF1A1A',
+        'saw-red': '#FF0000',
+        'saw-yellow': '#FFD700',
+        'saw-blue': '#0033CC',
+        'saw-black': '#000000',
+        'saw-white': '#FFFFFF',
+        'saw-paper': '#F5F0E8',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        bebas: ['Bebas Neue', 'Arial Black', 'sans-serif'],
+        oswald: ['Oswald', 'Arial', 'sans-serif'],
+        stencil: ['Special Elite', 'Courier New', 'monospace'],
       },
-      animation: {
-        'pulse-red': 'pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'count-up': 'count-up 0.5s ease-out',
+      boxShadow: {
+        'brutal': '4px 4px 0 #000',
+        'brutal-lg': '6px 6px 0 #000',
+        'brutal-xl': '8px 8px 0 #000',
       },
-      keyframes: {
-        'pulse-red': {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.5', color: '#CC0000' },
-        },
+      borderWidth: {
+        '3': '3px',
+        '4': '4px',
       },
     },
   },

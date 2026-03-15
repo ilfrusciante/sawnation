@@ -2,29 +2,35 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-[#CC0000]/20 mt-20">
+    <footer className="bg-black border-t-4 border-saw-red mt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">✊</span>
-              <span className="text-xl font-black text-white">SAWNation</span>
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <div className="stencil-title text-4xl text-white mb-3">✊ SAWNation</div>
+            <p className="manifesto-text text-gray-400 text-sm leading-relaxed mb-4">
               La prima nazione digitale fondata dagli studenti universitari di tutto il mondo.
             </p>
-            <div className="mt-4 space-y-1">
-              <p className="text-[#CC0000] font-bold text-sm">Nessuna guerra dichiarata da sempre.</p>
-              <p className="text-[#CC0000] font-bold text-sm">Nessun dato venduto. Mai.</p>
-              <p className="text-[#CC0000] font-bold text-sm">Ogni euro tracciato. Sempre. 🕊️</p>
+            <div className="space-y-1">
+              <div className="inline-block bg-saw-red text-white font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
+                NESSUNA GUERRA. MAI.
+              </div>
+              <div className="inline-block bg-saw-yellow text-black font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
+                NESSUN DATO VENDUTO.
+              </div>
+              <div className="inline-block bg-saw-blue text-white font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
+                OGNI EURO TRACCIATO.
+              </div>
             </div>
           </div>
 
-          {/* La Costituzione */}
+          {/* Costituzione */}
           <div>
-            <h3 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">La Costituzione</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
+            <h3 className="font-oswald font-bold text-white mb-4 text-sm uppercase tracking-widest border-b-2 border-saw-red pb-2">
+              La Costituzione
+            </h3>
+            <ul className="space-y-2 manifesto-text text-sm text-gray-400">
               <li>Art. 1 — Nessuna guerra</li>
               <li>Art. 2 — Nessun confine</li>
               <li>Art. 3 — Nessun leader permanente</li>
@@ -34,23 +40,33 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">La Piattaforma</h3>
+            <h3 className="font-oswald font-bold text-white mb-4 text-sm uppercase tracking-widest border-b-2 border-saw-red pb-2">
+              La Piattaforma
+            </h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/passaporto" className="text-gray-400 hover:text-[#CC0000] transition-colors">🛂 Il Passaporto</Link></li>
-              <li><Link href="/tribunale" className="text-gray-400 hover:text-[#CC0000] transition-colors">⚖️ Tribunale dei Capi</Link></li>
-              <li><Link href="/meme" className="text-gray-400 hover:text-[#CC0000] transition-colors">😂 Un Meme Vi Sotterrerà</Link></li>
-              <li><Link href="/antiparlamento" className="text-gray-400 hover:text-[#CC0000] transition-colors">🗳️ L'Anti-Parlamento</Link></li>
-              <li><Link href="/bilancio" className="text-gray-400 hover:text-[#CC0000] transition-colors">📊 Il Bilancio della Nazione</Link></li>
+              {[
+                ['/passaporto', '✊ Il Passaporto'],
+                ['/tribunale', '⚖️ Tribunale dei Capi'],
+                ['/meme', '✌️ Un Meme Vi Sotterrerà'],
+                ['/antiparlamento', "🗳️ L'Anti-Parlamento"],
+                ['/bilancio', '📊 Il Bilancio'],
+              ].map(([href, label]) => (
+                <li key={href}>
+                  <Link href={href} className="font-oswald text-gray-400 hover:text-saw-yellow transition-colors uppercase tracking-wide">
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-xs">
+        <div className="mt-12 pt-6 border-t-2 border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="manifesto-text text-gray-600 text-xs">
             © 2025 SAWNation. Registrata in Olanda. Struttura: Benefit Corporation.
           </p>
-          <p className="text-gray-500 text-xs">
-            sawnation.org — La nazione che non ha mai dichiarato guerra.
+          <p className="font-oswald text-gray-600 text-xs uppercase tracking-wider">
+            sawnation.org — La nazione che non ha mai dichiarato guerra 🕊️
           </p>
         </div>
       </div>

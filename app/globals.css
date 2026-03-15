@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Bebas+Neue&family=Special+Elite&display=swap');
 
 :root {
-  --saw-red: #CC0000;
-  --saw-red-dark: #990000;
+  --red: #FF0000;
+  --yellow: #FFD700;
+  --blue: #0033CC;
+  --black: #000000;
+  --white: #FFFFFF;
+  --paper: #F5F0E8;
 }
 
 * {
@@ -15,68 +19,201 @@
   margin: 0;
 }
 
-html,
-body {
+html, body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Inter', system-ui, sans-serif;
-  background-color: #000000;
-  color: #ffffff;
+  font-family: 'Oswald', 'Arial Black', sans-serif;
+  background-color: #0a0a0a;
+  color: #FFFFFF;
+}
+
+/* Texture di sfondo — muro grezzo */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #111;
-}
-::-webkit-scrollbar-thumb {
-  background: #CC0000;
-  border-radius: 3px;
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: #FF0000; border-radius: 0; }
+
+/* ============================
+   STENCIL / MANIFESTO STYLE
+   ============================ */
+
+.stencil-title {
+  font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  -webkit-text-stroke: 2px #000;
+  paint-order: stroke fill;
 }
 
-/* Custom utilities */
-.saw-gradient {
-  background: linear-gradient(135deg, #CC0000 0%, #660000 100%);
+.manifesto-text {
+  font-family: 'Special Elite', 'Courier New', monospace;
 }
 
-.saw-text-gradient {
-  background: linear-gradient(90deg, #CC0000, #FF4444);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Card stile manifesto incollato sul muro */
+.poster-card {
+  background: #F5F0E8;
+  color: #000;
+  border: 4px solid #000;
+  box-shadow: 6px 6px 0px #000;
+  position: relative;
+  transform: rotate(-0.5deg);
+}
+.poster-card:nth-child(even) { transform: rotate(0.3deg); }
+.poster-card:nth-child(3n) { transform: rotate(-0.8deg); }
+
+/* Bordo spesso stile stampa serigrafica */
+.thick-border {
+  border: 4px solid #000;
+  box-shadow: 5px 5px 0 #000;
 }
 
-.citizen-card {
-  background: linear-gradient(135deg, #1a0000 0%, #0d0000 100%);
-  border: 1px solid #CC0000;
+/* Badge stile timbro */
+.stamp {
+  display: inline-block;
+  border: 3px solid currentColor;
+  padding: 4px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 900;
+  transform: rotate(-2deg);
+  font-family: 'Oswald', sans-serif;
 }
 
+/* Linea decorativa stile manifesto */
+.protest-line {
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #FF0000 0px,
+    #FF0000 20px,
+    transparent 20px,
+    transparent 24px
+  );
+}
+
+/* Testo su sfondo giallo stile highlight */
+.highlight-yellow {
+  background: #FFD700;
+  color: #000;
+  padding: 0 6px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.highlight-red {
+  background: #FF0000;
+  color: #FFF;
+  padding: 0 6px;
+}
+
+/* Pulsante stile serigrafato */
+.btn-protest {
+  background: #FF0000;
+  color: #FFF;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.1s;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.btn-protest:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+.btn-protest:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.btn-yellow {
+  background: #FFD700;
+  color: #000;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.1s;
+  text-transform: uppercase;
+}
+.btn-yellow:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+.btn-blue {
+  background: #0033CC;
+  color: #FFF;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.1s;
+  text-transform: uppercase;
+}
+.btn-blue:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000;
+}
+
+/* Glass sostituito con pannello manifesto */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10,10,10,0.9);
+  border: 3px solid #333;
 }
 
+/* Counter pulsante */
 .pulse-dot {
-  width: 8px;
-  height: 8px;
-  background: #CC0000;
-  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: #FF0000;
+  border: 2px solid #000;
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(204, 0, 0, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(255,0,0,0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(255,0,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,0,0,0); }
 }
 
-/* Leaflet map dark style */
-.leaflet-container {
-  background: #111 !important;
+/* Citizen card stile passaporto retrò */
+.citizen-card {
+  background: #F5F0E8;
+  color: #000;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0 #000;
 }
-.leaflet-tile {
-  filter: invert(1) hue-rotate(180deg) brightness(0.8) !important;
+
+/* Leaflet */
+.leaflet-container { background: #111 !important; }
+.leaflet-tile { filter: invert(1) hue-rotate(180deg) brightness(0.7) !important; }
+
+/* Torn paper effect top/bottom */
+.torn-top {
+  position: relative;
+}
+.torn-top::before {
+  content: '';
+  display: block;
+  height: 30px;
+  background: inherit;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30'%3E%3Cpath d='M0,30 C100,5 200,25 300,10 C400,-5 500,20 600,15 C700,10 800,25 900,5 C1000,-10 1100,20 1200,10 L1200,30 Z' fill='black'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30'%3E%3Cpath d='M0,30 C100,5 200,25 300,10 C400,-5 500,20 600,15 C700,10 800,25 900,5 C1000,-10 1100,20 1200,10 L1200,30 Z' fill='black'/%3E%3C/svg%3E");
+  -webkit-mask-size: cover;
+  mask-size: cover;
 }
