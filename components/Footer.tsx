@@ -10,7 +10,8 @@ export default function Footer() {
           <div>
             <div className="stencil-title text-4xl text-white mb-3">✊ SAWNation</div>
             <p className="manifesto-text text-gray-400 text-sm leading-relaxed mb-4">
-              La prima nazione digitale fondata dagli studenti universitari di tutto il mondo.
+              La prima nazione digitale costruita da studenti universitari di tutto il mondo.
+              Nessun esercito. Nessun confine. Nessun bugiardo al potere.
             </p>
             <div className="space-y-1">
               <div className="inline-block bg-saw-red text-white font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
@@ -47,6 +48,7 @@ export default function Footer() {
               {[
                 ['/passaporto', '✊ Il Passaporto'],
                 ['/tribunale', '⚖️ Tribunale dei Capi'],
+                ['/art-for-peace', '🎨 Art for Peace'],
                 ['/meme', '✌️ Un Meme Vi Sotterrerà'],
                 ['/antiparlamento', "🗳️ L'Anti-Parlamento"],
                 ['/bilancio', '📊 Il Bilancio'],

@@ -79,63 +79,55 @@ export default function PassaportoPage() {
   }
 
   const handlePayment = () => {
-    // Redirect to Stripe Checkout (API route)
     window.location.href = `/api/checkout?name=${encodeURIComponent(form.name)}&country=${encodeURIComponent(form.country)}&country_code=${form.countryCode}&university=${encodeURIComponent(form.university)}`
   }
 
-  const downloadPassport = () => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const link = document.createElement('a')
-    link.download = `SAWNation_Passaporto_${form.name.replace(' ', '_')}.png`
-    link.href = canvas.toDataURL()
-    link.click()
-  }
-
   return (
-    <div className="min-h-screen bg-black pt-24 pb-16 px-4">
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-white pt-16">
 
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="text-6xl mb-4">🛂</div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Il Passaporto SAWNation
+      {/* HERO */}
+      <section className="bg-saw-yellow border-b-4 border-black px-6 py-14">
+        <div className="max-w-3xl mx-auto">
+          <p className="font-oswald text-xs uppercase tracking-widest text-black/60 mb-3">— Documento di Cittadinanza</p>
+          <h1 className="stencil-title text-black text-5xl md:text-7xl leading-none mb-4">
+            IL PASSAPORTO<br />SAWNATION
           </h1>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto">
-            La tua carta d'identità digitale. Unica. Con numero progressivo.
-            Il tuo posto nella storia di una nazione che non ha mai dichiarato guerra.
+          <p className="font-oswald text-black text-lg max-w-xl leading-relaxed mb-2">
+            Il tuo documento di identità digitale. Numero progressivo. Permanente.
+            Il tuo posto registrato nella storia di una nazione che non ha mai dichiarato guerra.
           </p>
-          <div className="mt-4 inline-block bg-[#CC0000]/10 border border-[#CC0000]/30 rounded-full px-6 py-2">
-            <span className="text-[#CC0000] font-black text-xl">Solo 2€</span>
-            <span className="text-gray-400 ml-2 text-sm">— una tantum. 80% va agli studenti in guerra.</span>
+          <div className="mt-4 inline-block bg-black text-white font-oswald font-bold text-sm px-4 py-2">
+            Solo 2€ — una tantum. L'80% va direttamente agli studenti in zone di conflitto.
           </div>
         </div>
+      </section>
+
+      <div className="max-w-3xl mx-auto px-6 py-12">
 
         {step === 'form' && (
-          <div className="glass rounded-2xl p-8 md:p-12">
-            <h2 className="text-2xl font-black text-white mb-8">Crea il tuo passaporto</h2>
+          <div className="glass p-8 md:p-12">
+            <h2 className="stencil-title text-black text-3xl mb-8">CREA IL TUO PASSAPORTO</h2>
 
             <div className="space-y-6">
               {/* Name */}
               <div>
-                <label className="block text-sm font-bold text-gray-300 mb-2">Nome completo *</label>
+                <label className="block font-oswald text-sm font-bold text-black mb-2 uppercase tracking-wide">Nome completo *</label>
                 <input
                   type="text"
                   value={form.name}
                   onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                   placeholder="Es. Marco Rossi"
-                  className="w-full bg-white/5 border border-white/10 focus:border-[#CC0000] rounded-xl px-4 py-3 text-white outline-none transition-colors placeholder-gray-600"
+                  className="w-full bg-white border-3 border-black focus:border-saw-red px-4 py-3 text-black outline-none transition-colors placeholder-gray-400 font-oswald"
                 />
               </div>
 
               {/* Country */}
               <div>
-                <label className="block text-sm font-bold text-gray-300 mb-2">Paese di origine *</label>
+                <label className="block font-oswald text-sm font-bold text-black mb-2 uppercase tracking-wide">Paese di origine *</label>
                 <select
                   value={form.country}
                   onChange={handleCountryChange}
-                  className="w-full bg-gray-900 border border-white/10 focus:border-[#CC0000] rounded-xl px-4 py-3 text-white outline-none transition-colors"
+                  className="w-full bg-white border-3 border-black focus:border-saw-red px-4 py-3 text-black outline-none transition-colors font-oswald"
                 >
                   {COUNTRIES.map(c => (
                     <option key={c.code} value={c.name}>{c.name}</option>
@@ -145,29 +137,29 @@ export default function PassaportoPage() {
 
               {/* University */}
               <div>
-                <label className="block text-sm font-bold text-gray-300 mb-2">Università (opzionale)</label>
+                <label className="block font-oswald text-sm font-bold text-black mb-2 uppercase tracking-wide">Università (opzionale)</label>
                 <input
                   type="text"
                   value={form.university}
                   onChange={e => setForm(f => ({ ...f, university: e.target.value }))}
                   placeholder="Es. Università La Sapienza"
-                  className="w-full bg-white/5 border border-white/10 focus:border-[#CC0000] rounded-xl px-4 py-3 text-white outline-none transition-colors placeholder-gray-600"
+                  className="w-full bg-white border-3 border-black focus:border-saw-red px-4 py-3 text-black outline-none transition-colors placeholder-gray-400 font-oswald"
                 />
               </div>
 
               {/* Photo */}
               <div>
-                <label className="block text-sm font-bold text-gray-300 mb-2">Foto (opzionale)</label>
+                <label className="block font-oswald text-sm font-bold text-black mb-2 uppercase tracking-wide">Foto (opzionale)</label>
                 <div
-                  className="border-2 border-dashed border-white/10 hover:border-[#CC0000]/50 rounded-xl p-8 text-center cursor-pointer transition-colors"
+                  className="border-3 border-dashed border-black hover:border-saw-red p-8 text-center cursor-pointer transition-colors"
                   onClick={() => fileInputRef.current?.click()}
                 >
                   {photoPreview ? (
-                    <img src={photoPreview} alt="Preview" className="w-24 h-24 rounded-full object-cover mx-auto" />
+                    <img src={photoPreview} alt="Preview" className="w-24 h-24 object-cover mx-auto border-3 border-black" />
                   ) : (
                     <>
                       <div className="text-4xl mb-2">📸</div>
-                      <p className="text-gray-400 text-sm">Clicca per caricare la tua foto</p>
+                      <p className="font-oswald text-gray-500 text-sm uppercase tracking-wide">Clicca per caricare la tua foto</p>
                     </>
                   )}
                 </div>
@@ -177,9 +169,9 @@ export default function PassaportoPage() {
               <button
                 onClick={handlePreview}
                 disabled={!form.name || loading}
-                className="w-full bg-[#CC0000] hover:bg-[#990000] disabled:opacity-40 disabled:cursor-not-allowed text-white font-black text-xl py-5 rounded-xl transition-all hover:scale-[1.02]"
+                className="w-full btn-protest py-5 text-2xl disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {loading ? 'Generazione...' : 'Anteprima del mio passaporto →'}
+                {loading ? 'GENERAZIONE IN CORSO...' : 'ANTEPRIMA DEL MIO PASSAPORTO →'}
               </button>
             </div>
           </div>
@@ -187,61 +179,61 @@ export default function PassaportoPage() {
 
         {step === 'preview' && citizenNumber !== null && (
           <div className="space-y-8">
-            <div className="glass rounded-2xl p-8">
-              <h2 className="text-2xl font-black text-white mb-6 text-center">Il tuo passaporto SAWNation</h2>
+            <div className="glass p-8">
+              <h2 className="stencil-title text-black text-3xl mb-6 text-center">IL TUO PASSAPORTO SAWNATION</h2>
 
-              {/* Passport Card */}
               <div className="max-w-sm mx-auto">
-                <div className="citizen-card rounded-2xl p-6 shadow-2xl shadow-[#CC0000]/10">
+                <div className="citizen-card p-6">
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <div className="text-xs text-gray-500 uppercase tracking-widest mb-1">SAWNation</div>
-                      <div className="text-xs text-gray-500">Students Against War Nation</div>
+                      <div className="font-oswald text-xs text-gray-500 uppercase tracking-widest mb-1">SAWNation</div>
+                      <div className="font-oswald text-xs text-gray-500">Students Against War Nation</div>
                     </div>
                     <div className="text-3xl">✊</div>
                   </div>
 
                   <div className="flex gap-4 mb-6">
                     {photoPreview ? (
-                      <img src={photoPreview} alt="" className="w-20 h-20 rounded-xl object-cover border-2 border-[#CC0000]/50" />
+                      <img src={photoPreview} alt="" className="w-20 h-20 object-cover border-3 border-black" />
                     ) : (
-                      <div className="w-20 h-20 rounded-xl bg-[#CC0000]/10 border-2 border-[#CC0000]/30 flex items-center justify-center text-3xl">
+                      <div className="w-20 h-20 border-3 border-black flex items-center justify-center text-3xl bg-gray-100">
                         👤
                       </div>
                     )}
                     <div>
-                      <div className="text-white font-black text-lg leading-tight">{form.name}</div>
-                      <div className="text-gray-400 text-sm mt-1">{form.country}</div>
-                      {form.university && <div className="text-gray-500 text-xs mt-1">{form.university}</div>}
+                      <div className="stencil-title text-black text-xl leading-tight">{form.name}</div>
+                      <div className="font-oswald text-gray-600 text-sm mt-1">{form.country}</div>
+                      {form.university && <div className="font-oswald text-gray-500 text-xs mt-1">{form.university}</div>}
                     </div>
                   </div>
 
-                  <div className="border-t border-[#CC0000]/20 pt-4">
-                    <div className="text-xs text-gray-500 mb-1">NUMERO CITTADINO</div>
-                    <div className="text-[#CC0000] font-black text-2xl">#{String(citizenNumber).padStart(6, '0')}</div>
+                  <div className="border-t-3 border-black pt-4">
+                    <div className="font-oswald text-xs text-gray-500 mb-1 uppercase tracking-wider">Numero Cittadino</div>
+                    <div className="stencil-title text-saw-red text-3xl">#{String(citizenNumber).padStart(6, '0')}</div>
                   </div>
 
-                  <div className="mt-4 text-xs text-gray-500 italic leading-relaxed">
-                    "Nato in {form.country}. Cittadino del mondo.<br />
+                  <div className="mt-4 bg-saw-yellow p-3 text-xs font-oswald text-black border-t-2 border-black leading-relaxed">
+                    "Nato/a in {form.country}. Cittadino/a del mondo.
                     Numero {citizenNumber} della nazione che non ha mai dichiarato guerra."
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="glass rounded-2xl p-6 text-center">
-              <p className="text-gray-400 mb-2 text-sm">
-                Pagamento sicuro via Stripe. <span className="text-[#CC0000] font-bold">80% (1,60€) va direttamente agli studenti in guerra.</span>
+            <div className="glass p-6 text-center">
+              <p className="font-oswald text-gray-600 mb-2 text-sm">
+                Pagamento sicuro via Stripe.{' '}
+                <span className="text-saw-red font-bold">L'80% (1,60€) va direttamente agli studenti in zone di conflitto.</span>
               </p>
               <button
                 onClick={handlePayment}
-                className="w-full bg-[#CC0000] hover:bg-[#990000] text-white font-black text-xl py-5 rounded-xl transition-all hover:scale-[1.02] mt-2"
+                className="w-full btn-protest py-5 text-2xl mt-3"
               >
-                Paga 2€ e ottieni il tuo passaporto →
+                PAGA 2€ E OTTIENI IL TUO PASSAPORTO →
               </button>
               <button
                 onClick={() => setStep('form')}
-                className="mt-3 text-gray-500 hover:text-white text-sm transition-colors"
+                className="mt-4 font-oswald text-gray-500 hover:text-black text-sm transition-colors uppercase tracking-wide"
               >
                 ← Torna indietro
               </button>
@@ -253,14 +245,14 @@ export default function PassaportoPage() {
         {step === 'form' && (
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { icon: '🔒', title: 'Dati protetti', desc: 'I tuoi dati non vengono mai venduti. Articolo 4 della Costituzione.' },
-              { icon: '📥', title: 'Download immediato', desc: 'PDF ad alta risoluzione scaricabile subito dopo il pagamento.' },
-              { icon: '📱', title: 'Condivisibile', desc: 'Pronto per Instagram, Twitter, LinkedIn in un tap.' },
+              { icon: '🔒', title: 'Dati protetti per sempre', desc: 'Art. 4 della Costituzione SAWNation: i tuoi dati non verranno mai venduti, condivisi o ceduti. Nessuna eccezione.' },
+              { icon: '📥', title: 'Download immediato', desc: 'Documento PNG ad alta risoluzione scaricabile subito dopo il pagamento. Tuo per sempre.' },
+              { icon: '📱', title: 'Pronto da condividere', desc: 'Formato ottimizzato per Instagram, X, LinkedIn. Mostra il tuo numero al mondo.' },
             ].map((item) => (
-              <div key={item.title} className="glass rounded-xl p-5 text-center">
+              <div key={item.title} className="glass p-5">
                 <div className="text-2xl mb-2">{item.icon}</div>
-                <div className="font-bold text-white text-sm mb-1">{item.title}</div>
-                <div className="text-gray-500 text-xs">{item.desc}</div>
+                <div className="stencil-title text-black text-lg mb-1">{item.title}</div>
+                <div className="font-oswald text-gray-600 text-sm leading-relaxed">{item.desc}</div>
               </div>
             ))}
           </div>
