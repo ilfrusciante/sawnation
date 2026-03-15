@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import CitizenCounter from '@/components/CitizenCounter'
 import dynamic from 'next/dynamic'
