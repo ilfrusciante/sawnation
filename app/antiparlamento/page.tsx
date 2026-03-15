@@ -133,7 +133,7 @@ export default function AntiParlamentoPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {[
                   { icon: '🚫', title: 'Non rieletto mai', desc: 'Una sola volta nella vita. Per sempre. Nessuna eccezione, nessun compromesso. Chi ha avuto il microfono lo passa.' },
-                  { icon: '🏛️', title: 'Nessun partito', desc: 'Zero affiliazioni politiche dichiarate. Il portavoce parla a nome degli studenti del mondo, non di un'ideologia.' },
+                  { icon: '🏛️', title: 'Nessun partito', desc: "Zero affiliazioni politiche dichiarate. Il portavoce parla a nome degli studenti del mondo, non di un'ideologia." },
                   { icon: '💯', title: 'Solo la verità', desc: 'I messaggi pubblici devono essere basati su fatti verificabili, con lo stesso rigore del Tribunale dei Capi.' },
                 ].map((rule) => (
                   <div key={rule.title} className={`p-6 thick-border ${rule.icon === '🚫' ? 'bg-saw-red text-white' : rule.icon === '🏛️' ? 'bg-saw-yellow text-black' : 'bg-black text-white'}`}>
