@@ -23,12 +23,13 @@ const MOCK_LEADERS: Leader[] = [
 
 async function getLeaders(): Promise<Leader[]> {
   try {
-    const { data } = await supabaseAdmin
+    const { data, error } = await supabaseAdmin
       .from('leaders')
       .select('*')
       .eq('status', 'pubblicato')
       .order('published_at', { ascending: false })
-    return data && data.length > 0 ? data : MOCK_LEADERS
+    if (error || !data || data.length === 0) return MOCK_LEADERS
+    return data
   } catch {
     return MOCK_LEADERS
   }
