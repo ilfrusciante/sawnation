@@ -14,30 +14,66 @@ const CONSTITUTION = [
 ]
 
 const SECTIONS = [
-  { href: '/passaporto', emoji: '✊', title: 'IL PASSAPORTO', desc: 'Il tuo documento di cittadinanza digitale. Numero progressivo. La tua posizione nella storia di una nazione che non ha mai dichiarato guerra. Solo 2€.', bg: 'bg-saw-red', text: 'text-white' },
-  { href: '/tribunale', emoji: '⚖️', title: 'TRIBUNALE DEI CAPI', desc: 'Un archivio di fatti verificati. Dati reali su vendite di armi, decisioni di guerra e cifre che i governi preferiscono non pubblicare.', bg: 'bg-black', text: 'text-white' },
-  { href: '/art-for-peace', emoji: '🎨', title: 'ART FOR PEACE', desc: "L'arte è l'unica arma che non uccide. Artisti da tutto il mondo usano creatività e cultura per sfidare la narrativa della guerra.", bg: 'bg-saw-yellow', text: 'text-black' },
-  { href: '/meme', emoji: '✌️', title: 'UN MEME VI SOTTERRERÀ', desc: "Sfida meme settimanale su un tema politico reale. La community vota. Il vincitore viene inviato all'ufficio stampa del capo di stato coinvolto.", bg: 'bg-saw-blue', text: 'text-white' },
-  { href: '/antiparlamento', emoji: '🗳️', title: "L'ANTI-PARLAMENTO", desc: 'Un portavoce eletto ogni 7 giorni, da un paese diverso, sempre under 30, mai rieletto. La democrazia che i parlamenti non hanno il coraggio di fare.', bg: 'bg-saw-paper text-black', text: 'text-black' },
-  { href: '/bilancio', emoji: '📊', title: 'IL BILANCIO', desc: "Ogni euro tracciato in tempo reale. L'80% va direttamente agli studenti in zone di conflitto. Nessun governo al mondo fa questo.", bg: 'bg-white', text: 'text-black' },
+  {
+    href: '/passaporto',
+    title: 'IL PASSAPORTO',
+    desc: 'Il tuo documento di cittadinanza digitale. Numero progressivo. Solo 2€.',
+    img: 'https://images.unsplash.com/photo-1761069234490-ee6998b25e21?auto=format&fit=crop&w=800&q=80',
+    tag: 'IDENTITÀ',
+  },
+  {
+    href: '/tribunale',
+    title: 'TRIBUNALE DEI CAPI',
+    desc: 'Dati reali e verificati su vendite di armi, decisioni di guerra. Solo fatti.',
+    img: 'https://images.unsplash.com/photo-1631791563807-d41830aa0af4?auto=format&fit=crop&w=800&q=80',
+    tag: 'ACCOUNTABILITY',
+  },
+  {
+    href: '/art-for-peace',
+    title: 'ART FOR PEACE',
+    desc: "L'arte è l'unica arma che non uccide. Artisti da tutto il mondo contro la guerra.",
+    img: 'https://images.unsplash.com/photo-1572280935179-bad2474e2646?auto=format&fit=crop&w=800&q=80',
+    tag: 'CREATIVITÀ',
+  },
+  {
+    href: '/meme',
+    title: 'UN MEME VI SOTTERRERÀ',
+    desc: 'Sfida meme settimanale. La community vota. Il vincitore va agli uffici stampa.',
+    img: 'https://images.unsplash.com/photo-1759876223884-9892ba610fd4?auto=format&fit=crop&w=800&q=80',
+    tag: 'SATIRA',
+  },
+  {
+    href: '/antiparlamento',
+    title: "L'ANTI-PARLAMENTO",
+    desc: 'Un portavoce eletto ogni 7 giorni. Sempre under 30. Mai rieletto. Mai.',
+    img: 'https://images.unsplash.com/photo-1761001826423-7231bfe1ee37?auto=format&fit=crop&w=800&q=80',
+    tag: 'DEMOCRAZIA',
+  },
+  {
+    href: '/bilancio',
+    title: 'IL BILANCIO',
+    desc: "Ogni euro tracciato in tempo reale. L'80% va agli studenti in zone di conflitto.",
+    img: 'https://images.unsplash.com/photo-1540929819775-fcc7d4649250?auto=format&fit=crop&w=800&q=80',
+    tag: 'TRASPARENZA',
+  },
 ]
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* HERO */}
+      {/* HERO — split layout */}
       <section className="pt-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 min-h-[90vh]">
+        <div className="grid grid-cols-1 md:grid-cols-2 min-h-[92vh]">
 
-          {/* Left — testo giallo */}
+          {/* Left — testo manifesto su giallo */}
           <div className="bg-saw-yellow border-b-4 md:border-b-0 md:border-r-4 border-black px-8 py-16 md:py-24 flex flex-col justify-center">
             <div className="inline-block mb-6">
               <span className="stamp text-black border-black text-sm font-oswald">
                 Students Against War Nation
               </span>
             </div>
-            <h1 className="stencil-title text-black leading-none mb-4" style={{ fontSize: 'clamp(3rem, 8vw, 7rem)' }}>
+            <h1 className="stencil-title text-black leading-none mb-4" style={{ fontSize: 'clamp(3rem, 7vw, 6.5rem)' }}>
               <span className="block">LE GUERRE LE</span>
               <span className="block">DECIDONO I POTENTI.</span>
             </h1>
@@ -62,16 +98,16 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right — immagine protest art */}
-          <div className="relative overflow-hidden border-b-4 border-black min-h-[400px]">
+          {/* Right — murale colorato */}
+          <div className="relative overflow-hidden min-h-[400px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1591259622709-bdb033b4be2b?auto=format&fit=crop&w=1200&q=80"
-              alt="Protest art"
+              src="https://images.unsplash.com/photo-1717701409410-d1f74ce69a47?auto=format&fit=crop&w=1200&q=80"
+              alt="Street art mural"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/20" />
-            <div className="absolute bottom-6 left-6 right-6">
+            <div className="absolute inset-0 bg-black/10" />
+            <div className="absolute bottom-6 left-6">
               <div className="bg-saw-yellow border-3 border-black inline-block px-4 py-2">
                 <span className="stencil-title text-black text-xl">UNITE FOR PEACE</span>
               </div>
@@ -91,15 +127,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LINEA */}
       <div className="protest-line" />
 
-      {/* IL NOSTRO MOVIMENTO */}
+      {/* OUR MOVEMENT — testo + foto protesta */}
       <section className="bg-white px-6 py-20">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <p className="font-oswald text-xs uppercase tracking-widest text-gray-500 mb-4">— Il Movimento</p>
-            <h2 className="stencil-title text-black text-5xl md:text-6xl leading-none mb-6">
+            <h2 className="stencil-title text-black text-5xl md:text-7xl leading-none mb-6">
               OUR<br />MOVEMENT
             </h2>
             <p className="font-oswald text-lg text-gray-700 leading-relaxed mb-4">
@@ -109,62 +144,55 @@ export default function HomePage() {
             <p className="font-oswald text-lg text-gray-700 leading-relaxed mb-6">
               SAWNation nasce da una convinzione semplice: <strong>i giovani del mondo hanno più in comune tra loro
               che con i governi che li rappresentano.</strong> Siamo una nazione senza territorio,
-              senza esercito, senza confini — ma con una costituzione, un bilancio trasparente
-              e la volontà collettiva di milioni di studenti.
+              senza esercito, senza confini — ma con una costituzione reale e un bilancio trasparente.
             </p>
             <Link href="/passaporto" className="btn-protest px-8 py-3 text-xl inline-block">
               ENTRA NEL MOVIMENTO →
             </Link>
           </div>
 
-          {/* Immagine street art */}
-          <div className="thick-border overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1583225238311-0278ade1070d?auto=format&fit=crop&w=800&q=80"
-              alt="Street art mural"
-              className="w-full h-80 object-cover"
-            />
-            <div className="bg-saw-yellow p-6 border-t-4 border-black">
-              <p className="stencil-title text-black text-xl mb-4">I NUMERI CHE I GOVERNI NON PUBBLICANO</p>
-              <div className="space-y-3">
-                {[
-                  { num: '2.100+', label: 'miliardi di dollari spesi in armi nel 2023 (SIPRI)', color: 'text-saw-red' },
-                  { num: '43%', label: 'dei soldati morti nelle ultime guerre aveva meno di 25 anni', color: 'text-black' },
-                  { num: '0', label: 'guerre dichiarate da SAWNation da quando esiste', color: 'text-black' },
-                ].map((item) => (
-                  <div key={item.label} className="flex gap-4 items-start border-b-2 border-black pb-3">
-                    <div className={`stencil-title text-2xl ${item.color} flex-shrink-0`}>{item.num}</div>
-                    <div className="font-oswald text-black text-sm leading-tight">{item.label}</div>
-                  </div>
-                ))}
-              </div>
+          {/* Stack di 2 immagini */}
+          <div className="space-y-4">
+            <div className="thick-border overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1646195151271-e4d9f28abcc7?auto=format&fit=crop&w=900&q=80"
+                alt="Anti-war protest"
+                className="w-full h-56 object-cover"
+              />
+            </div>
+            <div className="thick-border overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1713311355040-72f9130216eb?auto=format&fit=crop&w=900&q=80"
+                alt="Student protest march"
+                className="w-full h-56 object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* LINEA */}
       <div className="protest-line" />
 
-      {/* ART OF RESISTANCE — banner immagine piena */}
-      <section className="relative overflow-hidden h-80 md:h-96">
+      {/* ART OF RESISTANCE — banner piena larghezza */}
+      <section className="relative overflow-hidden h-80 md:h-[500px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1530406831759-15c5c0cbce8b?auto=format&fit=crop&w=1600&q=80"
-          alt="Art of resistance"
+          src="https://images.unsplash.com/photo-1662369800166-a05d950eba15?auto=format&fit=crop&w=1600&q=80"
+          alt="Art of resistance mural"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 h-full flex items-center px-8">
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative z-10 h-full flex items-center px-8 md:px-16">
           <div className="max-w-2xl">
-            <h2 className="stencil-title text-white text-5xl md:text-7xl leading-none mb-4">
+            <h2 className="stencil-title text-white leading-none mb-4" style={{ fontSize: 'clamp(3rem, 8vw, 7rem)' }}>
               ART OF<br />
               <span className="text-saw-yellow">RESISTANCE</span>
             </h2>
-            <p className="font-oswald text-white text-lg mb-6 max-w-lg">
-              L'arte di resistenza esprime il potere della creatività contro la guerra,
-              unendo studenti attraverso colori audaci e messaggi che non si possono ignorare.
+            <p className="font-oswald text-white/80 text-lg mb-6 max-w-lg">
+              L'arte unisce studenti attraverso colori audaci e messaggi che non si possono ignorare.
+              Ogni murale è un manifesto. Ogni opera è un atto politico.
             </p>
             <Link href="/art-for-peace" className="btn-yellow px-8 py-3 text-xl inline-block">
               SCOPRI ART FOR PEACE →
@@ -173,7 +201,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LINEA */}
       <div className="protest-line" />
 
       {/* MAPPA */}
@@ -191,7 +218,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LINEA */}
       <div className="protest-line" />
 
       {/* COSTITUZIONE */}
@@ -214,10 +240,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LINEA */}
       <div className="protest-line" />
 
-      {/* LE SEZIONI */}
+      {/* LE SEZIONI — card con immagini come sfondo */}
       <section className="bg-white px-6 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 text-center">
@@ -227,13 +252,29 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SECTIONS.map((s) => (
               <Link key={s.href} href={s.href}
-                className={`${s.bg} ${s.text} thick-border p-8 block group transition-transform hover:-translate-y-1`}
+                className="relative overflow-hidden thick-border block group min-h-[320px] transition-transform hover:-translate-y-1"
               >
-                <div className="text-5xl mb-4">{s.emoji}</div>
-                <h3 className="stencil-title text-2xl md:text-3xl mb-3">{s.title}</h3>
-                <p className="font-oswald text-sm leading-relaxed opacity-80 mb-6">{s.desc}</p>
-                <div className="font-oswald font-bold uppercase tracking-wide text-sm">
-                  ENTRA →
+                {/* Immagine di sfondo */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.img}
+                  alt={s.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Overlay scuro */}
+                <div className="absolute inset-0 bg-black/65 group-hover:bg-black/55 transition-all" />
+                {/* Contenuto */}
+                <div className="relative z-10 p-8 h-full flex flex-col justify-between min-h-[320px]">
+                  <div>
+                    <div className="bg-saw-yellow border-2 border-black inline-block px-3 py-1 mb-4">
+                      <span className="font-oswald font-black text-black text-xs uppercase tracking-widest">{s.tag}</span>
+                    </div>
+                    <h3 className="stencil-title text-white text-2xl md:text-3xl mb-3 leading-tight">{s.title}</h3>
+                    <p className="font-oswald text-white/75 text-sm leading-relaxed">{s.desc}</p>
+                  </div>
+                  <div className="font-oswald font-black text-saw-yellow text-sm uppercase tracking-widest mt-6">
+                    ENTRA →
+                  </div>
                 </div>
               </Link>
             ))}
@@ -241,27 +282,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LINEA */}
       <div className="protest-line" />
 
       {/* MANIFESTO FINALE */}
-      <section className="py-24 px-6 bg-black">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="stencil-title text-white leading-tight mb-4"
+      <section className="relative overflow-hidden py-32 px-6">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1488942446680-85dd7de440ef?auto=format&fit=crop&w=1600&q=80"
+          alt="Protest march"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/75" />
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 className="stencil-title text-white leading-tight mb-6"
             style={{ fontSize: 'clamp(2rem, 7vw, 5rem)' }}>
             "OGNI GUERRA NELLA STORIA<br />
             È STATA DICHIARATA DA<br />
             QUALCUNO CHE NON<br />
             <span className="bg-saw-yellow text-black px-2">COMBATTERÀ MAI."</span>
           </h2>
-          <p className="font-oswald text-gray-400 text-lg mb-10 max-w-xl mx-auto">
+          <p className="font-oswald text-gray-300 text-lg mb-10 max-w-xl mx-auto">
             Noi non dichiariamo guerre. Dichiariamo l'esistenza di una nazione che crede
             il futuro non debba essere deciso da chi non ha nulla da perdere.
           </p>
           <Link href="/passaporto" className="btn-yellow px-12 py-5 text-2xl inline-block">
             UNISCITI ORA — 2€
           </Link>
-          <p className="font-oswald text-gray-600 text-sm mt-6 uppercase tracking-wide">
+          <p className="font-oswald text-gray-500 text-sm mt-6 uppercase tracking-wide">
             L'80% del tuo contributo va direttamente agli studenti in zone di conflitto
           </p>
         </div>
