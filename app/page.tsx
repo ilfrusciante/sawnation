@@ -184,10 +184,11 @@ export default function HomePage() {
       <section className="bg-black py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <p className="font-oswald text-gray-500 text-xs uppercase tracking-widest mb-8">— I numeri che i governi non pubblicano</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-l-4 border-gray-700">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-l-4 border-gray-700">
             {[
               { num: '$2.100+', unit: 'miliardi', label: 'spesi in armi nel 2023', source: 'SIPRI Report 2024' },
               { num: '43%', unit: 'dei soldati', label: 'morti aveva meno di 25 anni', source: 'UN War Statistics' },
+              { num: '0', unit: 'figli di capi di stato', label: 'morti al fronte nelle guerre da loro dichiarate', source: 'Ogni guerra degli ultimi 100 anni' },
               { num: '0', unit: 'guerre', label: 'dichiarate da SAWNation', source: 'Costituzione SAWNation, Art. 1' },
             ].map((item, i) => (
               <div key={i} className="border-r-4 border-gray-700 px-8 py-6">
