@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t-4 border-white mt-0">
+    <footer className="bg-black border-t border-gray-800 mt-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
@@ -14,7 +14,7 @@ export default function Footer() {
               Nessun esercito. Nessun confine. Nessun bugiardo al potere.
             </p>
             <div className="space-y-1">
-              <div className="inline-block bg-white text-white font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
+              <div className="inline-block bg-white text-black font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
                 NESSUNA GUERRA. MAI.
               </div>
               <div className="inline-block border-2 border-white text-white font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
@@ -28,7 +28,7 @@ export default function Footer() {
 
           {/* Costituzione */}
           <div>
-            <h3 className="font-oswald font-bold text-white mb-4 text-sm uppercase tracking-widest border-b-2 border-white pb-2">
+            <h3 className="font-oswald font-bold text-white mb-4 text-sm uppercase tracking-widest border-b border-gray-700 pb-2">
               La Costituzione
             </h3>
             <ul className="space-y-2 manifesto-text text-sm text-gray-400">
@@ -41,7 +41,7 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="font-oswald font-bold text-white mb-4 text-sm uppercase tracking-widest border-b-2 border-white pb-2">
+            <h3 className="font-oswald font-bold text-white mb-4 text-sm uppercase tracking-widest border-b border-gray-700 pb-2">
               La Piattaforma
             </h3>
             <ul className="space-y-2 text-sm">

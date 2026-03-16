@@ -52,7 +52,7 @@ const SECTIONS = [
   {
     href: '/bilancio',
     title: 'Il Bilancio',
-    desc: "Ogni contributo volontario tracciato in tempo reale. L'80% va agli studenti in guerra.",
+    desc: 'Ogni contributo volontario tracciato in tempo reale. Bilancio pubblico, verificabile da chiunque.',
     img: 'https://images.unsplash.com/photo-1540929819775-fcc7d4649250?auto=format&fit=crop&w=800&q=80',
     tag: 'Trasparenza',
   },
@@ -238,30 +238,40 @@ export default function HomePage() {
       {/* MAPPA — centerpiece */}
       <section className="bg-white px-8 py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
+          <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4" style={{ fontFamily: 'Barlow Condensed, sans-serif' }}>
                 — La Mappa dei Cittadini
               </p>
-              <h2 className="stencil-title text-black text-4xl md:text-5xl leading-tight">
-                Il mondo che<br /><span className="italic">si unisce</span>
+              <h2 className="stencil-title text-black text-4xl md:text-6xl leading-tight mb-4">
+                Guardate<br /><span className="italic">quanti siamo.</span>
               </h2>
-            </div>
-            <div>
-              <p className="font-oswald text-gray-500 leading-relaxed">
-                Ogni punto sulla mappa è uno studente. In tempo reale.
-                Quando una nuova registrazione arriva, il punto rosso si illumina
-                nell'area geografica di provenienza.
+              <p className="font-oswald text-gray-600 text-lg leading-relaxed">
+                Ognuno di questi punti è una persona che ha detto basta.
+                Veniamo da paesi che si combattono, parliamo lingue diverse,
+                abbiamo storie diverse — ma siamo d'accordo su una cosa:
+                il futuro non si decide in guerra.
               </p>
-              <div className="flex items-center gap-2 mt-4">
+              <p className="font-oswald text-black font-semibold text-base mt-4 leading-relaxed">
+                Noi lo stiamo già costruendo insieme.
+              </p>
+              <div className="flex items-center gap-2 mt-6">
                 <div className="pulse-dot" />
                 <span className="text-xs text-gray-400 uppercase tracking-widest" style={{ fontFamily: 'Barlow Condensed, sans-serif' }}>
-                  Pulsing = nuova registrazione live
+                  Il punto rosso indica una nuova iscrizione in tempo reale
                 </span>
               </div>
             </div>
+            <div className="hidden md:block">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1573166953836-06864dc70c45?auto=format&fit=crop&w=800&q=80"
+                alt="Students gathered"
+                className="w-full h-64 object-cover"
+              />
+            </div>
           </div>
-          <div className="border border-gray-200">
+          <div className="border border-gray-200" style={{ height: '520px' }}>
             <WorldMap />
           </div>
         </div>
@@ -358,7 +368,7 @@ export default function HomePage() {
             </Link>
           </div>
           <p className="font-oswald text-gray-600 text-xs mt-8 uppercase tracking-widest">
-            Passaporto gratuito · Contributi volontari · 80% agli studenti in conflitto
+            Passaporto gratuito · Contributi volontari · Bilancio pubblico in tempo reale
           </p>
         </div>
       </section>

@@ -14,8 +14,13 @@ const MOCK_LEADERS: Leader[] = [
     published_at: new Date().toISOString(),
     saw_citizens_in_country: 12400,
     sources: [
-      { label: 'ONU SIPRI Database 2024', url: 'https://sipri.org' },
-      { label: 'Reuters Investigation 2024', url: 'https://reuters.com' },
+      { label: 'SIPRI Arms Transfers Database 2024', url: 'https://sipri.org/databases/armstransfers' },
+      { label: 'SIPRI Military Expenditure Database', url: 'https://sipri.org/databases/milex' },
+      { label: 'UN OCHA — Humanitarian Data Exchange', url: 'https://data.humdata.org' },
+      { label: 'International Criminal Court', url: 'https://www.icc-cpi.int' },
+      { label: 'Human Rights Watch — World Report 2024', url: 'https://www.hrw.org/world-report/2024' },
+      { label: 'Amnesty International — Annual Report 2023/24', url: 'https://www.amnesty.org/en/latest/research/2024/01/amnesty-international-annual-report-2023-24' },
+      { label: 'ACLED — Armed Conflict Location & Event Data', url: 'https://acleddata.com' },
     ],
   },
 ]
