@@ -146,13 +146,13 @@ function SuccessContent() {
       <h1 className="stencil-title text-black text-4xl md:text-5xl mb-2">
         SEI DENTRO.
       </h1>
-      <h2 className="stencil-title text-saw-red text-3xl md:text-4xl mb-6">
+      <h2 className="stencil-title text-black text-3xl md:text-4xl mb-6">
         BENVENUTO NELLA NAZIONE.
       </h2>
       <p className="font-oswald text-gray-700 text-lg mb-2">
         Sei il cittadino numero
       </p>
-      <p className="stencil-title text-saw-red text-6xl mb-2">
+      <p className="stencil-title text-black text-6xl mb-2">
         #{String(citizen.citizen_number).padStart(6, '0')}
       </p>
       <p className="font-oswald text-gray-600 mb-10">
@@ -161,14 +161,14 @@ function SuccessContent() {
 
       {/* Passport Card */}
       <div className="citizen-card p-8 mb-8 max-w-sm mx-auto text-left">
-        <div className="bg-saw-red text-white font-oswald font-bold text-xs uppercase tracking-widest px-3 py-1 inline-block mb-4">
+        <div className="bg-black text-white font-oswald font-bold text-xs uppercase tracking-widest px-3 py-1 inline-block mb-4">
           SAWNation — Documento Ufficiale
         </div>
         <div className="stencil-title text-2xl text-black mb-1">{citizen.name}</div>
         <div className="font-oswald text-gray-600 mb-4 uppercase tracking-wide">{citizen.country}</div>
         <div className="border-t-4 border-black pt-4">
           <div className="font-oswald text-xs uppercase tracking-wider text-gray-500 mb-1">Numero Cittadino</div>
-          <div className="stencil-title text-4xl text-saw-red">
+          <div className="stencil-title text-4xl text-black">
             #{String(citizen.citizen_number).padStart(6, '0')}
           </div>
         </div>

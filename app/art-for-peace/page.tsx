@@ -65,7 +65,7 @@ export default function ArtForPeacePage() {
             </div>
             <h1 className="stencil-title text-white leading-none mb-4" style={{ fontSize: 'clamp(3rem, 10vw, 8rem)' }}>
               <span className="block">ART</span>
-              <span className="block text-saw-red">FOR</span>
+              <span className="block text-white">FOR</span>
               <span className="block">PEACE</span>
             </h1>
             <p className="font-oswald text-gray-300 text-xl leading-relaxed mb-8">
@@ -150,7 +150,7 @@ export default function ArtForPeacePage() {
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <div className="stencil-title text-xl text-black">{artist.name}</div>
-                    <div className="font-oswald text-xs uppercase text-saw-red font-bold">{artist.country}</div>
+                    <div className="font-oswald text-xs uppercase text-black font-bold">{artist.country}</div>
                   </div>
                   <p className="manifesto-text text-sm text-gray-600 leading-relaxed italic mb-4">
                     "{artist.statement}"
@@ -207,7 +207,7 @@ export default function ArtForPeacePage() {
           <div>
             <h2 className="stencil-title text-white text-5xl md:text-7xl mb-4">
               STAND UP<br />
-              <span className="text-saw-red">AGAINST WAR</span>
+              <span className="text-white">AGAINST WAR</span>
             </h2>
             <p className="font-oswald text-white/80 text-xl">Join Our Movement</p>
           </div>
@@ -233,7 +233,7 @@ export default function ArtForPeacePage() {
               { step: '04', title: 'Il mondo la vede', desc: 'La gallery è pubblica e globale. I migliori lavori vengono promossi sui canali SAWNation.' },
             ].map((item) => (
               <div key={item.step} className="bg-white thick-border p-6">
-                <div className="stencil-title text-5xl text-saw-red mb-3">{item.step}</div>
+                <div className="stencil-title text-5xl text-black mb-3">{item.step}</div>
                 <h3 className="stencil-title text-xl text-black mb-2">{item.title}</h3>
                 <p className="font-oswald text-sm text-gray-600 leading-relaxed">{item.desc}</p>
               </div>

@@ -4,12 +4,12 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 const navLinks = [
-  { href: '/passaporto', label: 'PASSAPORTO', color: 'hover:bg-saw-red hover:text-white' },
+  { href: '/passaporto', label: 'PASSAPORTO', color: 'hover:bg-black hover:text-white' },
   { href: '/tribunale', label: 'TRIBUNALE', color: 'hover:bg-black hover:text-white' },
-  { href: '/art-for-peace', label: 'ART FOR PEACE', color: 'hover:bg-saw-yellow hover:text-black' },
-  { href: '/meme', label: 'MEME', color: 'hover:bg-saw-blue hover:text-white' },
+  { href: '/art-for-peace', label: 'ART FOR PEACE', color: 'hover:bg-black hover:text-white' },
+  { href: '/meme', label: 'MEME', color: 'hover:bg-black hover:text-white' },
   { href: '/antiparlamento', label: 'ANTI-PARLAMENTO', color: 'hover:bg-black hover:text-white' },
-  { href: '/bilancio', label: 'BILANCIO', color: 'hover:bg-saw-yellow hover:text-black' },
+  { href: '/bilancio', label: 'BILANCIO', color: 'hover:bg-black hover:text-white' },
 ]
 
 export default function Navbar() {
@@ -22,7 +22,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="stencil-title text-black text-2xl tracking-wider group-hover:text-saw-red transition-colors">
+            <span className="stencil-title text-black text-2xl tracking-wider group-hover:text-gray-600 transition-colors">
               ✊ SAWNation
             </span>
           </Link>

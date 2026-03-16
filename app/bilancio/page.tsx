@@ -81,7 +81,7 @@ export default function BilancioPage() {
           <p className="font-oswald text-xs uppercase tracking-widest text-gray-400 mb-3">— Trasparenza radicale</p>
           <h1 className="stencil-title text-white text-5xl md:text-7xl leading-none mb-4">
             IL BILANCIO<br />
-            <span className="text-saw-red">DELLA NAZIONE</span>
+            <span className="text-black">DELLA NAZIONE</span>
           </h1>
           <p className="font-oswald text-gray-300 text-lg max-w-2xl leading-relaxed mb-4">
             SAWNation è la prima organizzazione nella storia con un bilancio pubblico,
@@ -96,13 +96,23 @@ export default function BilancioPage() {
         </div>
       </section>
 
+      {/* URBAN ART BANNER */}
+      <section className="relative overflow-hidden h-48 md:h-64">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1487452066049-a710f7296400?auto=format&fit=crop&w=1600&q=80"
+          alt="Urban graffiti art"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </section>
+
       <div className="max-w-5xl mx-auto px-6 py-12">
 
         {/* Live Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[
             { label: 'Totale entrate', value: fmt(totals.total_in), sub: 'da sempre', live: true, bg: 'bg-white' },
-            { label: 'Fondo studenti', value: fmt(totals.total_students), sub: '80% di tutto', highlight: true, bg: 'bg-saw-red text-white' },
+            { label: 'Fondo studenti', value: fmt(totals.total_students), sub: '80% di tutto', highlight: true, bg: 'bg-black text-white' },
             { label: 'Passaporti oggi', value: totals.passports_today.toString(), sub: 'nuovi cittadini', live: true, bg: 'bg-white' },
             { label: 'Studenti finanziati', value: totals.active_scholars.toString(), sub: 'attivamente supportati', bg: 'bg-black text-white' as string },
           ].map((stat) => (
@@ -110,10 +120,10 @@ export default function BilancioPage() {
               {stat.live && (
                 <div className="flex items-center justify-center gap-1 mb-2">
                   <div className="pulse-dot" />
-                  <span className={`font-oswald text-xs font-bold uppercase ${stat.bg === 'bg-black text-white' ? 'text-saw-yellow' : 'text-saw-red'}`}>LIVE</span>
+                  <span className={`font-oswald text-xs font-bold uppercase ${stat.bg === 'bg-black text-white' ? 'text-white' : 'text-black'}`}>LIVE</span>
                 </div>
               )}
-              <div className={`stencil-title text-3xl tabular-nums ${stat.highlight ? 'text-black' : stat.bg === 'bg-black text-white' ? 'text-saw-yellow' : 'text-black'}`}>
+              <div className={`stencil-title text-3xl tabular-nums ${stat.highlight ? 'text-black' : stat.bg === 'bg-black text-white' ? 'text-white' : 'text-black'}`}>
                 {loading ? '...' : stat.value}
               </div>
               <div className={`font-oswald text-xs mt-1 uppercase tracking-wide ${stat.bg === 'bg-black text-white' ? 'text-gray-400' : 'text-gray-600'}`}>{stat.label}</div>
@@ -141,7 +151,7 @@ export default function BilancioPage() {
                   <div className="font-oswald font-bold text-black text-sm uppercase tracking-wide">{source}</div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 bg-saw-red border-2 border-black px-3 py-1.5">
+                  <div className="flex items-center gap-2 bg-black border-2 border-black px-3 py-1.5">
                     <span className="font-oswald font-black text-white text-sm">80%</span>
                     <span className="font-oswald text-white/80 text-xs">studenti</span>
                   </div>
@@ -154,7 +164,7 @@ export default function BilancioPage() {
             ))}
           </div>
           <div className="flex rounded-none overflow-hidden h-6 border-3 border-black">
-            <div className="bg-saw-red h-full flex items-center justify-center" style={{ width: '80%' }}>
+            <div className="bg-black h-full flex items-center justify-center" style={{ width: '80%' }}>
               <span className="font-oswald font-black text-white text-xs">80%</span>
             </div>
             <div className="bg-black h-full flex items-center justify-center" style={{ width: '20%' }}>
@@ -188,7 +198,7 @@ export default function BilancioPage() {
                   </div>
                   <div className="text-right">
                     <div className="stencil-title text-black text-lg">{fmt(tx.amount)}</div>
-                    <div className="font-oswald text-saw-red text-xs font-bold">{fmt(tx.fund_students)} → studenti</div>
+                    <div className="font-oswald text-black text-xs font-bold">{fmt(tx.fund_students)} → studenti</div>
                   </div>
                 </div>
               ))}
@@ -228,7 +238,7 @@ export default function BilancioPage() {
                     </div>
                   </div>
                   <p className="manifesto-text text-gray-700 text-sm leading-relaxed mb-3">"{student.story}"</p>
-                  <p className="font-oswald text-saw-red text-sm font-bold">Sogno: {student.dream}</p>
+                  <p className="font-oswald text-black text-sm font-bold">Sogno: {student.dream}</p>
                   <div className="mt-4 flex items-center justify-between border-t-2 border-black pt-4">
                     <div className="font-oswald text-gray-500 text-xs uppercase tracking-wide">Borsa mensile</div>
                     <div className="stencil-title text-black text-xl">{fmt(student.monthly_grant)}/mese</div>

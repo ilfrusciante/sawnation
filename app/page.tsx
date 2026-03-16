@@ -83,7 +83,7 @@ export default function HomePage() {
             {/* Unico accento colore — il rosso sulle parole chiave */}
             <h2 className="stencil-title leading-none mb-8" style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)' }}>
               <span className="block text-black bg-black text-white px-2 inline-block mb-1">I GIOVANI</span>
-              <span className="block" style={{ color: '#FF0000' }}>LE PAGANO.</span>
+              <span className="block text-black">LE PAGANO.</span>
             </h2>
 
             <p className="font-oswald text-black text-lg font-bold mb-2 max-w-lg">
@@ -191,7 +191,7 @@ export default function HomePage() {
               { num: '0', unit: 'guerre', label: 'dichiarate da SAWNation', source: 'Costituzione SAWNation, Art. 1' },
             ].map((item, i) => (
               <div key={i} className="border-r-4 border-gray-700 px-8 py-6">
-                <div className="stencil-title text-white leading-none" style={{ fontSize: '4rem', color: i === 2 ? '#FF0000' : '#FFF' }}>
+                <div className="stencil-title text-white leading-none" style={{ fontSize: '4rem' }}>
                   {item.num}
                 </div>
                 <div className="font-oswald text-gray-300 text-sm uppercase tracking-wide">{item.unit}</div>
@@ -218,7 +218,7 @@ export default function HomePage() {
           <div className="max-w-2xl">
             <h2 className="stencil-title text-white leading-none mb-4" style={{ fontSize: 'clamp(3rem, 8vw, 7rem)' }}>
               ART OF<br />
-              <span style={{ color: '#FF0000' }}>RESISTANCE</span>
+              <span>RESISTANCE</span>
             </h2>
             <p className="font-oswald text-white/80 text-lg mb-6 max-w-lg">
               L'arte unisce studenti attraverso immagini che non si possono ignorare.
@@ -326,7 +326,7 @@ export default function HomePage() {
             "OGNI GUERRA NELLA STORIA<br />
             È STATA DICHIARATA DA<br />
             QUALCUNO CHE NON<br />
-            <span style={{ color: '#FF0000' }}>COMBATTERÀ MAI."</span>
+            <span>COMBATTERÀ MAI."</span>
           </h2>
           <p className="font-oswald text-gray-400 text-lg mb-10 max-w-xl mx-auto">
             Noi non dichiariamo guerre. Dichiariamo l'esistenza di una nazione

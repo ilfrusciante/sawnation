@@ -51,18 +51,25 @@ export default function MemePage() {
     <div className="min-h-screen bg-white pt-16">
 
       {/* HERO */}
-      <section className="bg-black border-b-4 border-white px-6 py-14">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative border-b-4 border-white px-6 py-14">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1607367502636-28fca0fef0d5?auto=format&fit=crop&w=1600&q=80"
+          alt="Street art"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/75" />
+        <div className="max-w-5xl mx-auto relative z-10">
           <p className="font-oswald text-xs uppercase tracking-widest text-gray-400 mb-3">— Resistenza creativa</p>
           <h1 className="stencil-title text-white text-5xl md:text-7xl leading-none mb-4">
-            UN MEME<br /><span className="text-saw-red">VI SOTTERRERÀ</span>
+            UN MEME<br /><span className="text-white">VI SOTTERRERÀ</span>
           </h1>
           <p className="font-oswald text-gray-300 text-lg max-w-2xl leading-relaxed mb-4">
             Sfida settimanale su un tema politico reale. La community vota.
             Il meme vincitore viene inviato ufficialmente all'ufficio stampa del capo di stato coinvolto.
             Perché la satira è seria.
           </p>
-          <p className="font-oswald text-gray-500 text-sm border-l-4 border-white pl-4">
+          <p className="font-oswald text-gray-300 text-sm border-l-4 border-white pl-4">
             I meme sono satira creativa degli utenti — non dichiarazioni ufficiali di SAWNation.
             L'umorismo è l'ultima difesa di chi non ha eserciti.
           </p>
@@ -110,14 +117,14 @@ export default function MemePage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {submissions.map((sub, index) => (
-                    <div key={sub.id} className={`glass overflow-hidden ${sub.is_winner ? 'border-saw-yellow' : ''}`}>
+                    <div key={sub.id} className={`glass overflow-hidden ${sub.is_winner ? 'border-4 border-black' : ''}`}>
                       {sub.is_winner && (
-                        <div className="bg-saw-yellow border-b-3 border-black px-4 py-2 font-oswald font-bold text-sm text-center text-black uppercase tracking-wide">
+                        <div className="bg-black border-b-3 border-black px-4 py-2 font-oswald font-bold text-sm text-center text-white uppercase tracking-wide">
                           🏆 Meme Ufficiale della Settimana
                         </div>
                       )}
                       {index === 0 && !sub.is_winner && (
-                        <div className="bg-saw-red border-b-3 border-black px-4 py-2 font-oswald font-bold text-sm text-center text-white uppercase tracking-wide">
+                        <div className="bg-black border-b-3 border-black px-4 py-2 font-oswald font-bold text-sm text-center text-white uppercase tracking-wide">
                           🔥 In testa
                         </div>
                       )}

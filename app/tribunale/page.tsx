@@ -35,8 +35,8 @@ async function getLeaders(): Promise<Leader[]> {
 }
 
 const STATUS_LABELS = {
-  in_verifica: { label: 'In verifica', color: 'text-black bg-saw-yellow border-black' },
-  verificato: { label: 'Verificato', color: 'text-white bg-saw-blue border-black' },
+  in_verifica: { label: 'In verifica', color: 'text-black bg-gray-200 border-black' },
+  verificato: { label: 'Verificato', color: 'text-white bg-black border-black' },
   pubblicato: { label: 'Pubblicato', color: 'text-white bg-black border-black' },
 }
 
@@ -47,22 +47,32 @@ export default async function TribunalePage() {
     <div className="min-h-screen bg-white pt-16">
 
       {/* HERO */}
-      <section className="bg-black px-6 py-14 border-b-4 border-saw-red">
+      <section className="bg-black px-6 py-14 border-b-4 border-white">
         <div className="max-w-5xl mx-auto">
           <p className="font-oswald text-xs uppercase tracking-widest text-gray-400 mb-3">— Archivio Verificato</p>
           <h1 className="stencil-title text-white text-5xl md:text-7xl leading-none mb-4">
             TRIBUNALE<br />
-            <span className="text-saw-red">DEI CAPI</span>
+            <span className="text-white">DEI CAPI</span>
           </h1>
           <p className="font-oswald text-gray-300 text-lg max-w-2xl leading-relaxed mb-4">
             Non è un processo. È un archivio. Dati reali, verificati, documentati.
             Nessun insulto. Nessuna opinione. Solo fatti che i governi preferiscono non pubblicare.
           </p>
-          <div className="inline-block bg-saw-yellow px-4 py-2 thick-border">
-            <span className="font-oswald font-bold text-black text-sm uppercase tracking-wide">REGOLA ASSOLUTA:</span>
-            <span className="font-oswald text-black text-sm ml-2">Se un dato non è verificabile al 100% con fonti primarie, non viene pubblicato. Mai.</span>
+          <div className="inline-block border-2 border-white px-4 py-2">
+            <span className="font-oswald font-bold text-white text-sm uppercase tracking-wide">REGOLA ASSOLUTA:</span>
+            <span className="font-oswald text-white/80 text-sm ml-2">Se un dato non è verificabile al 100% con fonti primarie, non viene pubblicato. Mai.</span>
           </div>
         </div>
+      </section>
+
+      {/* URBAN ART BANNER */}
+      <section className="relative overflow-hidden h-48 md:h-64">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1559743577-44f718e47c7d?auto=format&fit=crop&w=1600&q=80"
+          alt="Urban street art"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
       </section>
 
       <div className="max-w-5xl mx-auto px-6 py-12">
@@ -78,10 +88,10 @@ export default async function TribunalePage() {
               { num: '4', title: 'Pubblicazione', days: 'Con fonti', desc: 'Ogni singolo dato ha il link alla fonte originale. Cliccabile. Verificabile da chiunque, in qualsiasi momento.' },
             ].map((phase) => (
               <div key={phase.num} className="bg-white border-3 border-black p-4" style={{ boxShadow: '3px 3px 0 #000' }}>
-                <div className="stencil-title text-saw-red text-3xl mb-1">Fase {phase.num}</div>
+                <div className="stencil-title text-black text-3xl mb-1">Fase {phase.num}</div>
                 <div className="font-oswald font-bold text-black text-sm mb-1 uppercase">{phase.title}</div>
-                <div className="bg-saw-yellow inline-block px-2 py-0.5 mb-2">
-                  <span className="font-oswald text-black font-bold text-xs">{phase.days}</span>
+                <div className="bg-black text-white inline-block px-2 py-0.5 mb-2">
+                  <span className="font-oswald font-bold text-xs">{phase.days}</span>
                 </div>
                 <p className="font-oswald text-gray-600 text-xs leading-relaxed">{phase.desc}</p>
               </div>
@@ -110,11 +120,11 @@ export default async function TribunalePage() {
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                     {[
                       { label: 'Età', value: `${leader.age} anni`, type: 'neutral' },
-                      { label: 'Figli in zona di guerra', value: leader.children_in_war, type: leader.children_in_war === 0 ? 'positive' : 'neutral' },
+                      { label: 'Figli in zona di guerra', value: leader.children_in_war, type: 'neutral' },
                       { label: 'Decisioni di guerra', value: leader.war_decisions, type: 'danger' },
                       { label: 'Vendite di armi', value: `$${leader.arms_sales_billion}B`, type: 'danger' },
                     ].map((stat) => (
-                      <div key={stat.label} className={`p-4 text-center border-3 border-black ${stat.type === 'danger' ? 'bg-saw-red text-white' : stat.type === 'positive' ? 'bg-saw-yellow text-black' : 'bg-white text-black'}`}>
+                      <div key={stat.label} className={`p-4 text-center border-3 border-black ${stat.type === 'danger' ? 'bg-black text-white' : 'bg-white text-black'}`}>
                         <div className="stencil-title text-3xl mb-1">{stat.value}</div>
                         <div className="font-oswald text-xs uppercase tracking-wide opacity-70">{stat.label}</div>
                       </div>
@@ -122,7 +132,7 @@ export default async function TribunalePage() {
                   </div>
 
                   {leader.saw_citizens_in_country !== undefined && (
-                    <div className="bg-saw-yellow border-3 border-black p-4 mb-6">
+                    <div className="border-3 border-black bg-gray-100 p-4 mb-6">
                       <p className="font-oswald text-black text-sm">
                         <span className="stencil-title text-2xl">{leader.saw_citizens_in_country?.toLocaleString('it-IT')}</span>
                         {' '}cittadini SAWNation vivono nel suo paese e la pensano diversamente.

@@ -43,6 +43,20 @@ export default function AntiParlamentoPage() {
   return (
     <div className="min-h-screen bg-white pt-16">
 
+      {/* URBAN ART BANNER — top */}
+      <section className="relative overflow-hidden h-48 md:h-56 pt-16">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1601913463731-cfba9fd31ed3?auto=format&fit=crop&w=1600&q=80"
+          alt="Urban graffiti art"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 h-full flex items-center px-6">
+          <span className="stencil-title text-white text-4xl md:text-6xl">L'ANTI-PARLAMENTO</span>
+        </div>
+      </section>
+
       {/* HERO */}
       <section className="bg-black border-b-4 border-white px-6 py-14">
         <div className="max-w-4xl mx-auto">
@@ -89,13 +103,13 @@ export default function AntiParlamentoPage() {
 
                     <div className="flex-1">
                       <h2 className="stencil-title text-black text-3xl">{current.citizen?.name ?? 'Anonimo'}</h2>
-                      <p className="font-oswald text-saw-red font-bold uppercase tracking-wide">{current.country}</p>
+                      <p className="font-oswald font-bold text-black font-bold uppercase tracking-wide">{current.country}</p>
                       {current.citizen?.university && (
                         <p className="font-oswald text-gray-600 text-sm mt-1">{current.citizen.university}</p>
                       )}
 
                       <div className="flex flex-wrap gap-3 mt-4">
-                        <div className="bg-saw-red thick-border px-4 py-2 text-center text-white">
+                        <div className="bg-black thick-border px-4 py-2 text-center text-white">
                           <div className="stencil-title text-2xl">{daysLeft}g {hoursLeft}h</div>
                           <div className="font-oswald text-xs uppercase opacity-80">rimanenti</div>
                         </div>
@@ -136,7 +150,7 @@ export default function AntiParlamentoPage() {
                   { icon: '🏛️', title: 'Nessun partito', desc: "Zero affiliazioni politiche dichiarate. Il portavoce parla a nome degli studenti del mondo, non di un'ideologia." },
                   { icon: '💯', title: 'Solo la verità', desc: 'I messaggi pubblici devono essere basati su fatti verificabili, con lo stesso rigore del Tribunale dei Capi.' },
                 ].map((rule) => (
-                  <div key={rule.title} className={`p-6 thick-border ${rule.icon === '🚫' ? 'bg-saw-red text-white' : rule.icon === '🏛️' ? 'bg-saw-yellow text-black' : 'bg-black text-white'}`}>
+                  <div key={rule.title} className={`p-6 thick-border ${rule.icon === '💯' ? 'bg-black text-white' : 'bg-white text-black'}`}>
                     <div className="text-3xl mb-3">{rule.icon}</div>
                     <div className="stencil-title text-xl mb-2">{rule.title}</div>
                     <div className="font-oswald text-sm leading-relaxed opacity-80">{rule.desc}</div>
@@ -154,7 +168,7 @@ export default function AntiParlamentoPage() {
                     <div key={sp.id} className="glass p-4 flex items-center justify-between">
                       <div>
                         <span className="font-oswald font-bold text-black uppercase">{sp.citizen?.name ?? 'Anonimo'}</span>
-                        <span className="font-oswald text-saw-red ml-3 text-sm uppercase font-bold">{sp.country}</span>
+                        <span className="font-oswald font-bold text-black ml-3 text-sm uppercase font-bold">{sp.country}</span>
                       </div>
                       <div className="font-oswald text-gray-500 text-sm">
                         {new Date(sp.week_start).toLocaleDateString('it-IT')} — {new Date(sp.week_end).toLocaleDateString('it-IT')}

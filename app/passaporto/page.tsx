@@ -126,7 +126,7 @@ export default function PassaportoPage() {
         <div className="max-w-3xl mx-auto">
           <p className="font-oswald text-xs uppercase tracking-widest text-gray-400 mb-3">— Documento di Cittadinanza</p>
           <h1 className="stencil-title text-white text-5xl md:text-7xl leading-none mb-4">
-            IL PASSAPORTO<br /><span className="text-saw-red">SAWNATION</span>
+            IL PASSAPORTO<br /><span className="text-black">SAWNATION</span>
           </h1>
           <p className="font-oswald text-gray-300 text-lg max-w-xl leading-relaxed mb-2">
             Il tuo documento di identità digitale. Numero progressivo. Permanente.
@@ -136,6 +136,16 @@ export default function PassaportoPage() {
             Gratuito — una tantum. Per sempre.
           </div>
         </div>
+      </section>
+
+      {/* URBAN ART BANNER */}
+      <section className="relative overflow-hidden h-40 md:h-52">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1524754271100-b16fa3ad4906?auto=format&fit=crop&w=1600&q=80"
+          alt="Urban protest art"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
       </section>
 
       <div className="max-w-3xl mx-auto px-6 py-12">
@@ -153,7 +163,7 @@ export default function PassaportoPage() {
                   value={form.name}
                   onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                   placeholder="Es. Marco Rossi"
-                  className="w-full bg-white border-3 border-black focus:border-saw-red px-4 py-3 text-black outline-none transition-colors placeholder-gray-400 font-oswald"
+                  className="w-full bg-white border-3 border-black focus:border-black px-4 py-3 text-black outline-none transition-colors placeholder-gray-400 font-oswald"
                 />
               </div>
 
@@ -163,7 +173,7 @@ export default function PassaportoPage() {
                 <select
                   value={form.country}
                   onChange={handleCountryChange}
-                  className="w-full bg-white border-3 border-black focus:border-saw-red px-4 py-3 text-black outline-none transition-colors font-oswald"
+                  className="w-full bg-white border-3 border-black focus:border-black px-4 py-3 text-black outline-none transition-colors font-oswald"
                 >
                   {COUNTRIES.map(c => (
                     <option key={c.code} value={c.name}>{c.name}</option>
@@ -179,7 +189,7 @@ export default function PassaportoPage() {
                   value={form.university}
                   onChange={e => setForm(f => ({ ...f, university: e.target.value }))}
                   placeholder="Es. Università La Sapienza"
-                  className="w-full bg-white border-3 border-black focus:border-saw-red px-4 py-3 text-black outline-none transition-colors placeholder-gray-400 font-oswald"
+                  className="w-full bg-white border-3 border-black focus:border-black px-4 py-3 text-black outline-none transition-colors placeholder-gray-400 font-oswald"
                 />
               </div>
 
@@ -187,7 +197,7 @@ export default function PassaportoPage() {
               <div>
                 <label className="block font-oswald text-sm font-bold text-black mb-2 uppercase tracking-wide">Foto (opzionale)</label>
                 <div
-                  className="border-3 border-dashed border-black hover:border-saw-red p-8 text-center cursor-pointer transition-colors"
+                  className="border-3 border-dashed border-black hover:border-black p-8 text-center cursor-pointer transition-colors"
                   onClick={() => fileInputRef.current?.click()}
                 >
                   {photoPreview ? (
@@ -245,7 +255,7 @@ export default function PassaportoPage() {
 
                   <div className="border-t-3 border-black pt-4">
                     <div className="font-oswald text-xs text-gray-500 mb-1 uppercase tracking-wider">Numero Cittadino</div>
-                    <div className="stencil-title text-saw-red text-3xl">#{String(citizenNumber).padStart(6, '0')}</div>
+                    <div className="stencil-title text-black text-3xl">#{String(citizenNumber).padStart(6, '0')}</div>
                   </div>
 
                   <div className="mt-4 bg-black p-3 text-xs font-oswald text-white border-t-2 border-black leading-relaxed">
@@ -259,7 +269,7 @@ export default function PassaportoPage() {
             <div className="glass p-6 text-center">
               <p className="font-oswald text-gray-600 mb-2 text-sm">
                 Registrazione gratuita.{' '}
-                <span className="text-saw-red font-bold">Il passaporto è tuo per sempre.</span>
+                <span className="text-black font-bold">Il passaporto è tuo per sempre.</span>
               </p>
               <button
                 onClick={handleRegister}
