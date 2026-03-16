@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -15,22 +15,31 @@ html, body {
   overflow-x: hidden;
   font-family: 'Inter', 'Arial', sans-serif;
   background-color: #FFFFFF;
-  color: #000000;
+  color: #1a1a1a;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f0f0f0; }
-::-webkit-scrollbar-thumb { background: #000; border-radius: 0; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #fafafa; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 0; }
 
+/* Display serif — for big hero titles */
 .stencil-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+/* Keep uppercase stencil for UI labels */
+.stencil-ui {
   font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .manifesto-text {
-  font-family: 'Inter', 'Arial', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
 }
 
@@ -38,150 +47,130 @@ html, body {
   font-family: 'Inter', 'Arial', sans-serif;
 }
 
-/* Newspaper-style card */
+/* Clean card */
 .glass {
   background: #FFFFFF;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #000;
+  border: 1px solid #e5e5e5;
 }
 
 .thick-border {
-  border: 4px solid #000;
-  box-shadow: 5px 5px 0 #000;
+  border: 2px solid #1a1a1a;
 }
 
 .poster-card {
-  background: #F5F0E8;
-  color: #000;
-  border: 4px solid #000;
-  box-shadow: 6px 6px 0px #000;
+  background: #fafafa;
+  color: #1a1a1a;
+  border: 1px solid #e5e5e5;
 }
 
-/* Primary CTA — nero */
+/* Primary CTA */
 .btn-protest {
-  background: #000;
+  background: #1a1a1a;
   color: #FFF;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #555;
-  transition: all 0.1s;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1.5px solid #1a1a1a;
+  transition: all 0.15s;
   text-transform: uppercase;
   display: inline-block;
   cursor: pointer;
 }
 .btn-protest:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #555;
+  background: #333;
+  border-color: #333;
 }
 
-/* Bottone nero */
 .btn-black {
-  background: #000;
+  background: #1a1a1a;
   color: #FFF;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #555;
-  transition: all 0.1s;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1.5px solid #1a1a1a;
+  transition: all 0.15s;
   text-transform: uppercase;
   display: inline-block;
   cursor: pointer;
 }
 .btn-black:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #555;
+  background: #333;
 }
 
-/* Bottone outline nero */
 .btn-outline {
   background: transparent;
-  color: #000;
+  color: #1a1a1a;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #000;
-  transition: all 0.1s;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1.5px solid #1a1a1a;
+  transition: all 0.15s;
   text-transform: uppercase;
   display: inline-block;
   cursor: pointer;
 }
 .btn-outline:hover {
-  background: #000;
+  background: #1a1a1a;
   color: #FFF;
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #555;
 }
 
-/* Backward compat */
 .btn-yellow {
-  background: #000;
+  background: #1a1a1a;
   color: #FFF;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #555;
-  transition: all 0.1s;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1.5px solid #1a1a1a;
+  transition: all 0.15s;
   text-transform: uppercase;
   display: inline-block;
   cursor: pointer;
 }
-.btn-yellow:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #555;
-}
+.btn-yellow:hover { background: #333; }
 
 .btn-blue {
-  background: #000;
+  background: #1a1a1a;
   color: #FFF;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #555;
-  transition: all 0.1s;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1.5px solid #1a1a1a;
+  transition: all 0.15s;
   text-transform: uppercase;
   display: inline-block;
   cursor: pointer;
 }
-.btn-blue:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #555;
-}
+.btn-blue:hover { background: #333; }
 
 .stamp {
   display: inline-block;
-  border: 3px solid currentColor;
-  padding: 4px 12px;
+  border: 1px solid currentColor;
+  padding: 3px 10px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 800;
-  transform: rotate(-2deg);
+  letter-spacing: 0.1em;
+  font-weight: 600;
   font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
 }
 
-/* Separatore nero solido */
+/* Thin separator line */
 .protest-line {
-  height: 3px;
-  background: #000;
+  height: 1px;
+  background: #e5e5e5;
 }
 
 .highlight-red {
-  background: #000;
+  background: #1a1a1a;
   color: #FFF;
-  padding: 0 6px;
+  padding: 0 5px;
 }
 
-/* Tutte le immagini a colori */
+/* All images in color */
 .img-bw {
   filter: none;
 }
@@ -190,34 +179,64 @@ html, body {
   filter: none;
 }
 
-/* Pulse dot */
+/* Pulse dot — live indicator */
 .pulse-dot {
-  width: 10px;
-  height: 10px;
-  background: #333;
-  border: 2px solid #000;
+  width: 8px;
+  height: 8px;
+  background: #dc2626;
   border-radius: 50%;
   display: inline-block;
   animation: pulse-anim 2s infinite;
 }
 
 @keyframes pulse-anim {
-  0% { box-shadow: 0 0 0 0 rgba(0,0,0,0.5); }
-  70% { box-shadow: 0 0 0 10px rgba(0,0,0,0); }
-  100% { box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+  0% { box-shadow: 0 0 0 0 rgba(220,38,38,0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(220,38,38,0); }
+  100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); }
+}
+
+/* Map ping animation */
+.map-ping-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #dc2626;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: map-ping-fade 3s ease-out forwards;
+}
+
+.map-ping-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.3);
+  animation: map-ping-expand 3s ease-out forwards;
+}
+
+@keyframes map-ping-expand {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(6); opacity: 0; }
+}
+
+@keyframes map-ping-fade {
+  0% { opacity: 1; }
+  70% { opacity: 0.8; }
+  100% { opacity: 0; }
 }
 
 .citizen-card {
-  background: #F5F0E8;
-  color: #000;
-  border: 4px solid #000;
-  box-shadow: 8px 8px 0 #000;
+  background: #fafafa;
+  color: #1a1a1a;
+  border: 1px solid #e5e5e5;
 }
 
-/* Newspaper column dividers */
 .col-divider {
-  border-left: 2px solid #000;
+  border-left: 1px solid #e5e5e5;
 }
 
-.leaflet-container { background: #e8e8e8 !important; }
-.leaflet-tile { filter: grayscale(100%) brightness(0.9) !important; }
+.leaflet-container { background: #f0f0f0 !important; }
+.leaflet-tile { filter: grayscale(20%) brightness(1.05) !important; }
