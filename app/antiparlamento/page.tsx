@@ -44,7 +44,7 @@ export default function AntiParlamentoPage() {
     <div className="min-h-screen bg-white pt-16">
 
       {/* HERO */}
-      <section className="bg-black border-b-4 border-saw-yellow px-6 py-14">
+      <section className="bg-black border-b-4 border-white px-6 py-14">
         <div className="max-w-4xl mx-auto">
           <p className="font-oswald text-xs uppercase tracking-widest text-gray-400 mb-3">— Democrazia radicale</p>
           <h1 className="stencil-title text-white text-5xl md:text-7xl leading-none mb-4">
@@ -56,8 +56,8 @@ export default function AntiParlamentoPage() {
             Nessun partito. Nessuna carriera. Solo 7 giorni di voce autentica —
             poi si passa ad un altro. Come la democrazia dovrebbe funzionare.
           </p>
-          <div className="inline-block bg-saw-yellow thick-border px-4 py-2">
-            <span className="font-oswald font-bold text-black text-sm uppercase tracking-wide">
+          <div className="inline-block border-2 border-white px-4 py-2">
+            <span className="font-oswald font-bold text-white text-sm uppercase tracking-wide">
               Regola fondamentale: chi è stato portavoce non potrà esserlo mai più. Nessuna eccezione.
             </span>
           </div>
@@ -75,9 +75,9 @@ export default function AntiParlamentoPage() {
             {/* Current Spokesperson */}
             {current ? (
               <div className="glass mb-10 overflow-hidden">
-                <div className="bg-saw-yellow border-b-3 border-black px-6 py-3 flex items-center gap-3">
+                <div className="bg-black border-b-3 border-black px-6 py-3 flex items-center gap-3">
                   <div className="pulse-dot" />
-                  <span className="font-oswald font-bold text-black text-sm uppercase tracking-widest">Portavoce Attuale</span>
+                  <span className="font-oswald font-bold text-white text-sm uppercase tracking-widest">Portavoce Attuale</span>
                 </div>
                 <div className="p-8">
                   <div className="flex flex-col md:flex-row gap-8 items-start">

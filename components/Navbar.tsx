@@ -41,7 +41,7 @@ export default function Navbar() {
           {/* CTA */}
           <div className="hidden lg:block">
             <Link href="/passaporto" className="btn-protest px-5 py-2 text-base">
-              DIVENTA CITTADINO — 2€
+              DIVENTA CITTADINO — GRATIS
             </Link>
           </div>
 
@@ -67,7 +67,7 @@ export default function Navbar() {
             className="block text-center btn-protest px-6 py-4 text-lg m-4"
             onClick={() => setOpen(false)}
           >
-            DIVENTA CITTADINO — 2€
+            DIVENTA CITTADINO — GRATIS
           </Link>
         </div>
       )}

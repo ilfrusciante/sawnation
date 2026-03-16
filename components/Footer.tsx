@@ -17,10 +17,10 @@ export default function Footer() {
               <div className="inline-block bg-saw-red text-white font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
                 NESSUNA GUERRA. MAI.
               </div>
-              <div className="inline-block bg-saw-yellow text-black font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
+              <div className="inline-block border-2 border-white text-white font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
                 NESSUN DATO VENDUTO.
               </div>
-              <div className="inline-block bg-saw-blue text-white font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
+              <div className="inline-block border-2 border-white text-white font-oswald font-bold text-xs px-3 py-1 mr-1 mb-1">
                 OGNI EURO TRACCIATO.
               </div>
             </div>

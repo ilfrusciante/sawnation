@@ -10,6 +10,7 @@ import { Citizen } from '@/lib/supabase'
 function SuccessContent() {
   const params = useSearchParams()
   const sessionId = params.get('session_id')
+  const citizenId = params.get('citizen_id')
   const isDemo = params.get('demo') === 'true'
   const demoName = params.get('name') ?? ''
   const demoCountry = params.get('country') ?? ''
@@ -19,6 +20,19 @@ function SuccessContent() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
+    if (citizenId) {
+      supabase
+        .from('citizens')
+        .select('*')
+        .eq('id', citizenId)
+        .single()
+        .then(({ data }) => {
+          setCitizen(data)
+          setLoading(false)
+        })
+      return
+    }
+
     if (isDemo) {
       setCitizen({
         id: 'demo',
@@ -26,7 +40,7 @@ function SuccessContent() {
         name: demoName,
         country: demoCountry,
         country_code: 'XX',
-        stripe_payment_id: 'demo',
+        stripe_payment_id: 'free',
         passport_issued_at: new Date().toISOString(),
       })
       setLoading(false)
@@ -52,7 +66,7 @@ function SuccessContent() {
     }, 1500)
 
     return () => clearInterval(poll)
-  }, [sessionId, isDemo, demoName, demoCountry])
+  }, [sessionId, citizenId, isDemo, demoName, demoCountry])
 
   const downloadPassport = () => {
     if (!citizen) return
@@ -119,7 +133,7 @@ function SuccessContent() {
     return (
       <div className="text-center max-w-md mx-auto">
         <div className="stencil-title text-6xl mb-6">✅</div>
-        <h1 className="stencil-title text-black text-4xl mb-4">Pagamento ricevuto!</h1>
+        <h1 className="stencil-title text-black text-4xl mb-4">Registrazione ricevuta!</h1>
         <p className="font-oswald text-gray-600 mb-8">Il tuo passaporto è in generazione. Riceverai conferma a breve.</p>
         <Link href="/" className="btn-protest px-8 py-4 inline-block">TORNA ALLA HOMEPAGE</Link>
       </div>
@@ -158,7 +172,7 @@ function SuccessContent() {
             #{String(citizen.citizen_number).padStart(6, '0')}
           </div>
         </div>
-        <div className="mt-4 bg-saw-yellow border-t-2 border-black p-3 text-xs font-oswald text-black">
+        <div className="mt-4 bg-black border-t-2 border-black p-3 text-xs font-oswald text-white">
           "Nato/a in {citizen.country}. Cittadino/a del mondo.
           La nazione che non ha mai dichiarato guerra."
         </div>

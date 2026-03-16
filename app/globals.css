@@ -20,7 +20,7 @@ html, body {
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f0f0f0; }
-::-webkit-scrollbar-thumb { background: #FF0000; border-radius: 0; }
+::-webkit-scrollbar-thumb { background: #000; border-radius: 0; }
 
 .stencil-title {
   font-family: 'Bebas Neue', 'Arial Black', sans-serif;
@@ -36,11 +36,11 @@ html, body {
   font-family: 'Oswald', 'Arial', sans-serif;
 }
 
-.poster-card {
-  background: #F5F0E8;
-  color: #000;
-  border: 4px solid #000;
-  box-shadow: 6px 6px 0px #000;
+/* Newspaper-style card */
+.glass {
+  background: #FFFFFF;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
 }
 
 .thick-border {
@@ -48,40 +48,14 @@ html, body {
   box-shadow: 5px 5px 0 #000;
 }
 
-.stamp {
-  display: inline-block;
-  border: 3px solid currentColor;
-  padding: 4px 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 900;
-  transform: rotate(-2deg);
-  font-family: 'Oswald', sans-serif;
-}
-
-.protest-line {
-  height: 4px;
-  background: repeating-linear-gradient(
-    90deg,
-    #FF0000 0px,
-    #FF0000 20px,
-    transparent 20px,
-    transparent 24px
-  );
-}
-
-.highlight-yellow {
-  background: #FFD700;
+.poster-card {
+  background: #F5F0E8;
   color: #000;
-  padding: 0 6px;
+  border: 4px solid #000;
+  box-shadow: 6px 6px 0px #000;
 }
 
-.highlight-red {
-  background: #FF0000;
-  color: #FFF;
-  padding: 0 6px;
-}
-
+/* Unico accento rosso — solo per CTA principali */
 .btn-protest {
   background: #FF0000;
   color: #FFF;
@@ -100,8 +74,28 @@ html, body {
   box-shadow: 6px 6px 0 #000;
 }
 
-.btn-yellow {
-  background: #FFD700;
+/* Bottone nero — stile giornale */
+.btn-black {
+  background: #000;
+  color: #FFF;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #555;
+  transition: all 0.1s;
+  text-transform: uppercase;
+  display: inline-block;
+  cursor: pointer;
+}
+.btn-black:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #555;
+}
+
+/* Bottone outline nero */
+.btn-outline {
+  background: transparent;
   color: #000;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.4rem;
@@ -113,19 +107,40 @@ html, body {
   display: inline-block;
   cursor: pointer;
 }
-.btn-yellow:hover {
+.btn-outline:hover {
+  background: #000;
+  color: #FFF;
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #000;
+  box-shadow: 6px 6px 0 #555;
 }
 
-.btn-blue {
-  background: #0033CC;
+/* Mantenuto per backward compat */
+.btn-yellow {
+  background: #000;
   color: #FFF;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.4rem;
   letter-spacing: 0.08em;
   border: 3px solid #000;
-  box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #555;
+  transition: all 0.1s;
+  text-transform: uppercase;
+  display: inline-block;
+  cursor: pointer;
+}
+.btn-yellow:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #555;
+}
+
+.btn-blue {
+  background: #000;
+  color: #FFF;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #555;
   transition: all 0.1s;
   text-transform: uppercase;
   display: inline-block;
@@ -133,21 +148,49 @@ html, body {
 }
 .btn-blue:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #000;
+  box-shadow: 6px 6px 0 #555;
 }
 
-.glass {
-  background: #FFFFFF;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #000;
+.stamp {
+  display: inline-block;
+  border: 3px solid currentColor;
+  padding: 4px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 900;
+  transform: rotate(-2deg);
+  font-family: 'Oswald', sans-serif;
 }
 
-.saw-gradient {
-  background: #FFD700;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 0 #000;
+/* Linea separatore — unico accento rosso strutturale */
+.protest-line {
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #FF0000 0px,
+    #FF0000 20px,
+    transparent 20px,
+    transparent 24px
+  );
 }
 
+.highlight-red {
+  background: #FF0000;
+  color: #FFF;
+  padding: 0 6px;
+}
+
+/* Immagini in bianco e nero */
+.img-bw {
+  filter: grayscale(100%) contrast(1.05);
+}
+
+/* Immagini a colori (usare raramente) */
+.img-color {
+  filter: none;
+}
+
+/* Pulse dot — mantiene il rosso per il live indicator */
 .pulse-dot {
   width: 10px;
   height: 10px;
@@ -171,5 +214,10 @@ html, body {
   box-shadow: 8px 8px 0 #000;
 }
 
+/* Newspaper column dividers */
+.col-divider {
+  border-left: 2px solid #000;
+}
+
 .leaflet-container { background: #e8e8e8 !important; }
-.leaflet-tile { filter: brightness(0.9) saturate(0.8) !important; }
+.leaflet-tile { filter: grayscale(100%) brightness(0.9) !important; }

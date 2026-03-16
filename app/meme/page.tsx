@@ -51,18 +51,18 @@ export default function MemePage() {
     <div className="min-h-screen bg-white pt-16">
 
       {/* HERO */}
-      <section className="bg-saw-yellow border-b-4 border-black px-6 py-14">
+      <section className="bg-black border-b-4 border-white px-6 py-14">
         <div className="max-w-5xl mx-auto">
-          <p className="font-oswald text-xs uppercase tracking-widest text-black/60 mb-3">— Resistenza creativa</p>
-          <h1 className="stencil-title text-black text-5xl md:text-7xl leading-none mb-4">
-            UN MEME<br />VI SOTTERRERÀ
+          <p className="font-oswald text-xs uppercase tracking-widest text-gray-400 mb-3">— Resistenza creativa</p>
+          <h1 className="stencil-title text-white text-5xl md:text-7xl leading-none mb-4">
+            UN MEME<br /><span className="text-saw-red">VI SOTTERRERÀ</span>
           </h1>
-          <p className="font-oswald text-black text-lg max-w-2xl leading-relaxed mb-4">
+          <p className="font-oswald text-gray-300 text-lg max-w-2xl leading-relaxed mb-4">
             Sfida settimanale su un tema politico reale. La community vota.
             Il meme vincitore viene inviato ufficialmente all'ufficio stampa del capo di stato coinvolto.
             Perché la satira è seria.
           </p>
-          <p className="font-oswald text-black/60 text-sm border-l-4 border-black pl-4">
+          <p className="font-oswald text-gray-500 text-sm border-l-4 border-white pl-4">
             I meme sono satira creativa degli utenti — non dichiarazioni ufficiali di SAWNation.
             L'umorismo è l'ultima difesa di chi non ha eserciti.
           </p>
@@ -85,9 +85,9 @@ export default function MemePage() {
                   <h2 className="stencil-title text-white text-3xl md:text-4xl">{challenge.theme}</h2>
                   <p className="font-oswald text-gray-300 mt-2 leading-relaxed">{challenge.description}</p>
                 </div>
-                <div className="text-center bg-saw-yellow thick-border p-6">
-                  <div className="stencil-title text-black text-5xl">{daysLeft}</div>
-                  <div className="font-oswald text-black text-sm uppercase font-bold">giorni rimasti</div>
+                <div className="text-center border-3 border-white p-6">
+                  <div className="stencil-title text-white text-5xl">{daysLeft}</div>
+                  <div className="font-oswald text-gray-300 text-sm uppercase font-bold">giorni rimasti</div>
                 </div>
               </div>
 

@@ -76,20 +76,20 @@ export default function BilancioPage() {
     <div className="min-h-screen bg-white pt-16">
 
       {/* HERO */}
-      <section className="bg-black border-b-4 border-saw-yellow px-6 py-14">
+      <section className="bg-black border-b-4 border-white px-6 py-14">
         <div className="max-w-5xl mx-auto">
           <p className="font-oswald text-xs uppercase tracking-widest text-gray-400 mb-3">— Trasparenza radicale</p>
           <h1 className="stencil-title text-white text-5xl md:text-7xl leading-none mb-4">
             IL BILANCIO<br />
-            <span className="text-saw-yellow">DELLA NAZIONE</span>
+            <span className="text-saw-red">DELLA NAZIONE</span>
           </h1>
           <p className="font-oswald text-gray-300 text-lg max-w-2xl leading-relaxed mb-4">
             SAWNation è la prima organizzazione nella storia con un bilancio pubblico,
             in tempo reale, verificabile da chiunque. Non perché siamo obbligati —
             ma perché crediamo che la fiducia si costruisca con i numeri, non con le parole.
           </p>
-          <div className="inline-block bg-saw-yellow thick-border px-4 py-2">
-            <span className="font-oswald font-bold text-black text-sm">
+          <div className="inline-block border-2 border-white px-4 py-2">
+            <span className="font-oswald font-bold text-white text-sm">
               "Quello che i governi nascondono, noi lo mostriamo. Ogni centesimo. In tempo reale."
             </span>
           </div>
@@ -102,7 +102,7 @@ export default function BilancioPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {[
             { label: 'Totale entrate', value: fmt(totals.total_in), sub: 'da sempre', live: true, bg: 'bg-white' },
-            { label: 'Fondo studenti', value: fmt(totals.total_students), sub: '80% di tutto', highlight: true, bg: 'bg-saw-yellow' },
+            { label: 'Fondo studenti', value: fmt(totals.total_students), sub: '80% di tutto', highlight: true, bg: 'bg-saw-red text-white' },
             { label: 'Passaporti oggi', value: totals.passports_today.toString(), sub: 'nuovi cittadini', live: true, bg: 'bg-white' },
             { label: 'Studenti finanziati', value: totals.active_scholars.toString(), sub: 'attivamente supportati', bg: 'bg-black text-white' as string },
           ].map((stat) => (
@@ -131,7 +131,7 @@ export default function BilancioPage() {
           </p>
           <div className="space-y-3 mb-6">
             {[
-              'Carta d\'identità digitale (2€)',
+              'Registrazione passaporto (gratuita)',
               'Sponsorship atenei',
               'Evento annuale',
               'Donazioni volontarie',
@@ -207,7 +207,7 @@ export default function BilancioPage() {
           </h2>
           <p className="font-oswald text-gray-600 mb-8 text-lg leading-relaxed">
             Non sono numeri. Sono persone reali con nomi, storie e sogni.
-            Ogni passaporto acquistato finanzia direttamente uno di loro.
+            Ogni contributo ricevuto finanzia direttamente uno di loro.
             Questo è il cuore di tutto.
           </p>
 

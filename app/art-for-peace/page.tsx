@@ -59,13 +59,13 @@ export default function ArtForPeacePage() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-block mb-6">
-              <span className="stamp text-saw-yellow border-saw-yellow text-xs">
+              <span className="stamp text-white border-white text-xs">
                 SAWNation — Art Division
               </span>
             </div>
             <h1 className="stencil-title text-white leading-none mb-4" style={{ fontSize: 'clamp(3rem, 10vw, 8rem)' }}>
               <span className="block">ART</span>
-              <span className="block text-saw-yellow">FOR</span>
+              <span className="block text-saw-red">FOR</span>
               <span className="block">PEACE</span>
             </h1>
             <p className="font-oswald text-gray-300 text-xl leading-relaxed mb-8">
@@ -111,7 +111,7 @@ export default function ArtForPeacePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {MANIFESTO.map((item, i) => (
-              <div key={i} className={`p-8 thick-border ${i === 1 ? 'bg-saw-yellow text-black' : 'bg-white text-black'}`}>
+              <div key={i} className={`p-8 thick-border ${i === 1 ? 'bg-black text-white' : 'bg-white text-black'}`}>
                 <div className="stencil-title text-4xl opacity-10 mb-2">{String(i + 1).padStart(2, '0')}</div>
                 <h3 className="stencil-title text-2xl mb-4">{item.title}</h3>
                 <p className="font-oswald text-base leading-relaxed opacity-80">{item.text}</p>
@@ -155,8 +155,8 @@ export default function ArtForPeacePage() {
                   <p className="manifesto-text text-sm text-gray-600 leading-relaxed italic mb-4">
                     "{artist.statement}"
                   </p>
-                  <div className="bg-saw-yellow px-3 py-1 inline-block">
-                    <span className="font-oswald text-xs font-bold text-black uppercase">{artist.medium}</span>
+                  <div className="bg-black px-3 py-1 inline-block">
+                    <span className="font-oswald text-xs font-bold text-white uppercase">{artist.medium}</span>
                   </div>
                 </div>
               </div>
@@ -181,7 +181,7 @@ export default function ArtForPeacePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CATEGORIES.map((cat, i) => (
-              <div key={i} className={`thick-border p-6 ${i % 3 === 1 ? 'bg-saw-yellow' : 'bg-white'}`}>
+              <div key={i} className={`thick-border p-6 ${i % 3 === 1 ? 'bg-black text-white' : 'bg-white'}`}>
                 <div className="text-4xl mb-4">{cat.icon}</div>
                 <h3 className="stencil-title text-xl mb-3 text-black">{cat.title}</h3>
                 <p className="font-oswald text-sm leading-relaxed text-black/70">{cat.desc}</p>
@@ -207,7 +207,7 @@ export default function ArtForPeacePage() {
           <div>
             <h2 className="stencil-title text-white text-5xl md:text-7xl mb-4">
               STAND UP<br />
-              <span className="text-saw-yellow">AGAINST WAR</span>
+              <span className="text-saw-red">AGAINST WAR</span>
             </h2>
             <p className="font-oswald text-white/80 text-xl">Join Our Movement</p>
           </div>
@@ -233,7 +233,7 @@ export default function ArtForPeacePage() {
               { step: '04', title: 'Il mondo la vede', desc: 'La gallery è pubblica e globale. I migliori lavori vengono promossi sui canali SAWNation.' },
             ].map((item) => (
               <div key={item.step} className="bg-white thick-border p-6">
-                <div className="stencil-title text-5xl text-saw-yellow mb-3">{item.step}</div>
+                <div className="stencil-title text-5xl text-saw-red mb-3">{item.step}</div>
                 <h3 className="stencil-title text-xl text-black mb-2">{item.title}</h3>
                 <p className="font-oswald text-sm text-gray-600 leading-relaxed">{item.desc}</p>
               </div>
@@ -241,7 +241,7 @@ export default function ArtForPeacePage() {
           </div>
 
           <div className="text-center">
-            <div className="inline-block bg-saw-yellow thick-border p-8 mb-8 max-w-xl text-left">
+            <div className="inline-block bg-white thick-border p-8 mb-8 max-w-xl text-left">
               <h3 className="stencil-title text-black text-2xl mb-3">LINEE GUIDA EDITORIALI</h3>
               <ul className="font-oswald text-black text-sm space-y-2">
                 <li>✓ Contenuto originale e inedito</li>

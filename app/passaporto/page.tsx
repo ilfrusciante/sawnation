@@ -78,26 +78,62 @@ export default function PassaportoPage() {
     setLoading(false)
   }
 
-  const handlePayment = () => {
-    window.location.href = `/api/checkout?name=${encodeURIComponent(form.name)}&country=${encodeURIComponent(form.country)}&country_code=${form.countryCode}&university=${encodeURIComponent(form.university)}`
+  const handleRegister = async () => {
+    setLoading(true)
+    try {
+      let photoUrl: string | undefined
+      if (form.photo) {
+        const ext = form.photo.name.split('.').pop()
+        const filename = `${Date.now()}.${ext}`
+        const { data: uploadData } = await supabase.storage
+          .from('passports')
+          .upload(filename, form.photo)
+        if (uploadData) {
+          const { data: urlData } = supabase.storage.from('passports').getPublicUrl(filename)
+          photoUrl = urlData.publicUrl
+        }
+      }
+      const { data } = await supabase
+        .from('citizens')
+        .insert({
+          citizen_number: citizenNumber,
+          name: form.name,
+          country: form.country,
+          country_code: form.countryCode,
+          university: form.university || null,
+          photo_url: photoUrl || null,
+          stripe_payment_id: 'free',
+          passport_issued_at: new Date().toISOString(),
+        })
+        .select()
+        .single()
+      if (data) {
+        window.location.href = `/passaporto/success?citizen_id=${data.id}`
+      } else {
+        window.location.href = `/passaporto/success?demo=true&name=${encodeURIComponent(form.name)}&country=${encodeURIComponent(form.country)}`
+      }
+    } catch {
+      window.location.href = `/passaporto/success?demo=true&name=${encodeURIComponent(form.name)}&country=${encodeURIComponent(form.country)}`
+    }
+    setLoading(false)
   }
 
   return (
     <div className="min-h-screen bg-white pt-16">
 
       {/* HERO */}
-      <section className="bg-saw-yellow border-b-4 border-black px-6 py-14">
+      <section className="bg-black border-b-4 border-white px-6 py-14">
         <div className="max-w-3xl mx-auto">
-          <p className="font-oswald text-xs uppercase tracking-widest text-black/60 mb-3">— Documento di Cittadinanza</p>
-          <h1 className="stencil-title text-black text-5xl md:text-7xl leading-none mb-4">
-            IL PASSAPORTO<br />SAWNATION
+          <p className="font-oswald text-xs uppercase tracking-widest text-gray-400 mb-3">— Documento di Cittadinanza</p>
+          <h1 className="stencil-title text-white text-5xl md:text-7xl leading-none mb-4">
+            IL PASSAPORTO<br /><span className="text-saw-red">SAWNATION</span>
           </h1>
-          <p className="font-oswald text-black text-lg max-w-xl leading-relaxed mb-2">
+          <p className="font-oswald text-gray-300 text-lg max-w-xl leading-relaxed mb-2">
             Il tuo documento di identità digitale. Numero progressivo. Permanente.
             Il tuo posto registrato nella storia di una nazione che non ha mai dichiarato guerra.
           </p>
-          <div className="mt-4 inline-block bg-black text-white font-oswald font-bold text-sm px-4 py-2">
-            Solo 2€ — una tantum. L'80% va direttamente agli studenti in zone di conflitto.
+          <div className="mt-4 inline-block border-2 border-white text-white font-oswald font-bold text-sm px-4 py-2">
+            Gratuito — una tantum. Per sempre.
           </div>
         </div>
       </section>
@@ -212,7 +248,7 @@ export default function PassaportoPage() {
                     <div className="stencil-title text-saw-red text-3xl">#{String(citizenNumber).padStart(6, '0')}</div>
                   </div>
 
-                  <div className="mt-4 bg-saw-yellow p-3 text-xs font-oswald text-black border-t-2 border-black leading-relaxed">
+                  <div className="mt-4 bg-black p-3 text-xs font-oswald text-white border-t-2 border-black leading-relaxed">
                     "Nato/a in {form.country}. Cittadino/a del mondo.
                     Numero {citizenNumber} della nazione che non ha mai dichiarato guerra."
                   </div>
@@ -222,14 +258,15 @@ export default function PassaportoPage() {
 
             <div className="glass p-6 text-center">
               <p className="font-oswald text-gray-600 mb-2 text-sm">
-                Pagamento sicuro via Stripe.{' '}
-                <span className="text-saw-red font-bold">L'80% (1,60€) va direttamente agli studenti in zone di conflitto.</span>
+                Registrazione gratuita.{' '}
+                <span className="text-saw-red font-bold">Il passaporto è tuo per sempre.</span>
               </p>
               <button
-                onClick={handlePayment}
-                className="w-full btn-protest py-5 text-2xl mt-3"
+                onClick={handleRegister}
+                disabled={loading}
+                className="w-full btn-protest py-5 text-2xl mt-3 disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                PAGA 2€ E OTTIENI IL TUO PASSAPORTO →
+                {loading ? 'REGISTRAZIONE IN CORSO...' : 'OTTIENI IL TUO PASSAPORTO — GRATIS →'}
               </button>
               <button
                 onClick={() => setStep('form')}
@@ -246,7 +283,7 @@ export default function PassaportoPage() {
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
               { icon: '🔒', title: 'Dati protetti per sempre', desc: 'Art. 4 della Costituzione SAWNation: i tuoi dati non verranno mai venduti, condivisi o ceduti. Nessuna eccezione.' },
-              { icon: '📥', title: 'Download immediato', desc: 'Documento PNG ad alta risoluzione scaricabile subito dopo il pagamento. Tuo per sempre.' },
+              { icon: '📥', title: 'Download immediato', desc: 'Documento PNG ad alta risoluzione scaricabile subito dopo la registrazione. Tuo per sempre.' },
               { icon: '📱', title: 'Pronto da condividere', desc: 'Formato ottimizzato per Instagram, X, LinkedIn. Mostra il tuo numero al mondo.' },
             ].map((item) => (
               <div key={item.title} className="glass p-5">
